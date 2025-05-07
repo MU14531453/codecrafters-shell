@@ -7,10 +7,14 @@ def main():
     
     sys.stdout.write('$ ')
 
-    command = input()
 
-    if command not in command_list:
-        print(f'{command}: command not found')
+    while True:
+        command = input()
+
+        if command not in command_list:
+            print(f'{command}: command not found')
+        else:
+            pass
 
 
 if __name__ == '__main__':
