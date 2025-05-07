@@ -2,12 +2,16 @@ import sys
 
 
 def main():
-    # Uncomment this block to pass the first stage
-    sys.stdout.write("$ ")
 
-    # Wait for user input
-    input()
+    command_list = []
+    
+    sys.stdout.write('$ ')
+
+    command = input()
+
+    if command not in command_list:
+        print(f'{command}: command not found')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
