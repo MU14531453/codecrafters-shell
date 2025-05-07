@@ -30,7 +30,7 @@ def main():
                 case default:
                     return -1
 
-        sys.stdout.write('$ ')
+        sys.stdout.write('\n$ ')
 
 
 if __name__ == '__main__':
