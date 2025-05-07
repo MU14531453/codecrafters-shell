@@ -33,7 +33,7 @@ def main():
                 case 'type':
                     if arguments.strip() in command_list:
                         sys.stdout.write(f'{arguments} is a shell builtin')
-                    elif PATH in shutil.which(arguments):
+                    elif PATH and PATH in shutil.which(arguments):
                         sys.stdout.write(f'{arguments} is {PATH}')
                     else:
                         sys.stdout.write(f'{arguments}: not found')
