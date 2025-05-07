@@ -11,7 +11,13 @@ def main():
     while True:
         command = input()
 
-        identifier, arguments = command.split(command.index(' '))
+        for x, char in enumerate(command):
+            if char == ' ':
+                identifier, arguments = command[:x], command[x:]
+                break
+            elif x == len(command):
+                identifier, arguments = command, ''
+
 
         if identifier not in command_list:
             print(f'{command}: command not found')
