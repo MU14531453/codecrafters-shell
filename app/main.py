@@ -16,6 +16,8 @@ def main():
         else:
             pass
 
+        sys.stdout.write('$ ')
+
 
 if __name__ == '__main__':
     main()
