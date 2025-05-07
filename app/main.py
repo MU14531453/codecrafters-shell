@@ -11,12 +11,14 @@ def main():
     while True:
         command = input()
 
-        if command not in command_list:
+        identifier, arguments = command.split(command.index(' '))
+
+        if identifier not in command_list:
             print(f'{command}: command not found')
         else:
-            match command[:command.index(' ')]:
+            match identifier:
                 case 'exit':
-                    exit(int(command[command.index(' ')+1:]))
+                    exit(int(arguments))
                 case default:
                     return -1
 
