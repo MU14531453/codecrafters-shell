@@ -1,4 +1,5 @@
 import sys
+import shutil
 
 def get_command_name(command, command_list):
 
@@ -32,7 +33,7 @@ def main():
                 case 'type':
                     if arguments.strip() in command_list:
                         sys.stdout.write(f'{arguments} is a shell builtin')
-                    elif arguments.strip() in PATH:
+                    elif PATH in shutil.which(arguments):
                         sys.stdout.write(f'{arguments} is {PATH}')
                     else:
                         sys.stdout.write(f'{arguments}: not found')
