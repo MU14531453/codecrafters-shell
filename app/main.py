@@ -3,7 +3,7 @@ import sys
 
 def main():
 
-    command_list = ['exit', 'echo']
+    command_list = ['exit', 'echo', 'type']
     
     sys.stdout.write('$ ')
 
@@ -27,6 +27,11 @@ def main():
                     exit(int(arguments))
                 case 'echo':
                     sys.stdout.write(arguments)
+                case 'type':
+                    if arguments.strip() in command_list:
+                        sys.stdout.write(f'{arguments} is a shell builtin')
+                    else:
+                        sys.stdout.write(f'{arguments}: not found')
                 case default:
                     return -1
 
