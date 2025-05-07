@@ -12,9 +12,12 @@ def main():
         command = input()
 
         if ' ' in command:
-            identifier = command.split(' ')[0]
+            temp = command.split(' ')
+            identifier  = temp[0]
+            arguments = temp[1]
         else:
             identifier = command
+            arguments = ''
 
         if identifier not in command_list:
             print(f'{command}: command not found')
