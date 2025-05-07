@@ -3,7 +3,7 @@ import sys
 
 def main():
 
-    command_list = []
+    command_list = ['exit']
     
     sys.stdout.write('$ ')
 
@@ -14,7 +14,11 @@ def main():
         if command not in command_list:
             print(f'{command}: command not found')
         else:
-            pass
+            match command[:command.index(' ')]:
+                case 'exit':
+                    exit(int(command[command.index(' ')+1:]))
+                case default:
+                    return -1
 
         sys.stdout.write('$ ')
 
