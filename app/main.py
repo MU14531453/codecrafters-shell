@@ -1,9 +1,13 @@
 import sys
 
+def get_command_name(command, command_list):
+
+    pass
 
 def main():
 
-    command_list = ['exit', 'echo', 'type']
+    command_list = ['exit', 'echo', 'type', 'PATH']
+    PATH = ''
     
     sys.stdout.write('$ ')
 
@@ -11,27 +15,31 @@ def main():
     while True:
         command = input()
 
-        if ' ' in command:
-            temp = command.split(' ', 1)
-            identifier  = temp[0]
-            arguments = temp[1]
-        else:
-            identifier = command
-            arguments = ''
+        identifier  = command[:4]
+        arguments = command[4:]
 
         if identifier not in command_list:
             sys.stdout.write(f'{command}: command not found')
         else:
             match identifier:
+
                 case 'exit':
                     exit(int(arguments))
+
                 case 'echo':
                     sys.stdout.write(arguments)
+
                 case 'type':
                     if arguments.strip() in command_list:
                         sys.stdout.write(f'{arguments} is a shell builtin')
+                    elif arguments.strip() in PATH:
+                        sys.stdout.write(f'{arguments} is {PATH}')
                     else:
                         sys.stdout.write(f'{arguments}: not found')
+                
+                case 'PATH':
+                    PATH = arguments
+
                 case default:
                     return -1
 
