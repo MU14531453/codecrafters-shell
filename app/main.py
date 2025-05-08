@@ -8,16 +8,17 @@ def get_command_name(command, command_list):
 def main():
 
     command_list = ['exit', 'echo', 'type', 'PATH']
-    PATH = ''
+    PATH = []
     
     sys.stdout.write('$ ')
 
 
     while True:
+
         command = input()
 
-        identifier  = command[:4]
-        arguments = command[4:]
+        command_full = command.split(' ')
+        identifier  = command_full[0]
 
         if identifier not in command_list:
             sys.stdout.write(f'{command}: command not found')
@@ -25,21 +26,21 @@ def main():
             match identifier:
 
                 case 'exit':
-                    exit(int(arguments))
+                    exit(int(command_full[1]))
 
                 case 'echo':
-                    sys.stdout.write(arguments)
+                    sys.stdout.write(command_full[1])
 
                 case 'type':
-                    if arguments.strip() in command_list:
-                        sys.stdout.write(f'{arguments} is a shell builtin')
-                    elif PATH and PATH in shutil.which(arguments):
-                        sys.stdout.write(f'{arguments} is {PATH}')
+                    if command_full[1].strip() in command_list:
+                        sys.stdout.write(f'{command_full[1]} is a shell builtin')
+                    elif PATH and PATH in shutil.which(command_full[1]):
+                        sys.stdout.write(f'{command_full[1]} is {PATH}')
                     else:
-                        sys.stdout.write(f'{arguments}: not found')
+                        sys.stdout.write(f'{command_full[1]}: not found')
                 
                 case 'PATH':
-                    PATH = arguments
+                    PATH.append(command_full[1])
 
                 case default:
                     return -1
