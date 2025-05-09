@@ -46,7 +46,7 @@ def main():
             case default:
 
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_full, shell = True, capture_output = True, text = True)
+                    subprocess.run(command_full, capture_output = True, text = True)
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
