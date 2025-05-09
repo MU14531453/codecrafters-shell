@@ -46,7 +46,7 @@ def main():
 
             case default:
 
-                if identifier := shutil.which(command_full[1] if command_full[1] else ''):
+                if identifier := shutil.which(identifier if identifier else ''):
                     ret = subprocess.run(identifier)
                     sys.stdout.write(ret.stdout)
                 else:
