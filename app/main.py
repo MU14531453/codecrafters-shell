@@ -33,7 +33,7 @@ def main():
             case 'type':
                 if command_full[1].strip() in command_list:
                     sys.stdout.write(f'{command_full[1]} is a shell builtin')
-                elif PATH := shutil.which(command_full[1] or ''):
+                elif PATH := shutil.which(command_full[1] if command_full[1] else 'notapath'):
                     sys.stdout.write(f'{command_full[1]} is {PATH}')
                 else:
                     sys.stdout.write(f'{command_full[1]}: not found')
