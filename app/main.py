@@ -33,7 +33,7 @@ def main():
             case 'type':
                 if command_full[1].strip() in command_list:
                     sys.stdout.write(f'{command_full[1]} is a shell builtin')
-                elif PATH := shutil.which(command_full[1] if command_full[1] else 'notapath'):
+                elif PATH := shutil.which(command_full[1] if command_full[1] else ''):
                     sys.stdout.write(f'{command_full[1]} is {PATH}')
                 else:
                     sys.stdout.write(f'{command_full[1]}: not found')
@@ -53,8 +53,8 @@ def main():
                 pass
 
             case default:
-                if command in shutil.which(PATH):
-                    subprocess.call(command)
+                #if command in shutil.which(PATH):
+                    #subprocess.call(command)
                     #ret = subprocess.run(command)
                     #sys.stdout.write(ret.stdout)
                 else:
