@@ -18,10 +18,10 @@ def main():
 
     while True:
 
-        command = input()
+        command = input().replace('=', ' ')
 
         command_full = command.split(' ')
-        identifier = command_full[0]            
+        identifier = command_full[0]
 
         match identifier:
 
@@ -40,10 +40,10 @@ def main():
                     sys.stdout.write(f'{command_full[1]}: not found')
             
             case 'PATH':
-                path = []
+                PATH = []
 
                 command_full[1] = command_full[1][:-5]
-                
+
                 for filepath in command_full[1].split(':'):
                     PATH.append(filepath)
 
