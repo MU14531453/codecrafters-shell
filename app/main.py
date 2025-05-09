@@ -37,14 +37,6 @@ def main():
                     sys.stdout.write(f'{command_full[1]} is {PATH}')
                 else:
                     sys.stdout.write(f'{command_full[1]}: not found')
-            
-            #case 'PATH':
-            #    PATH = []
-            #
-            #    command_full[1] = command_full[1][:-5]
-#
- #               for filepath in command_full[1].split(':'):
-  #                  PATH.append(filepath)
 
             case 'pwd':
                 sys.stdout.write(os.getcwd())
@@ -53,17 +45,13 @@ def main():
                 pass
 
             case default:
-                if False:
-                    pass
-                #if command in shutil.which(PATH):
-                    #subprocess.call(command)
-                    #ret = subprocess.run(command)
-                    #sys.stdout.write(ret.stdout)
+
+                if command := shutil.which(command_full[1] if command_full[1] else ''):
+                    ret = subprocess.run(command)
+                    sys.stdout.write(ret.stdout)
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
-
-
         sys.stdout.write('\n$ ')
 
 
