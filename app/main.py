@@ -4,9 +4,11 @@ import shutil
 import random
 import subprocess
 
-def get_command_name(command, command_list):
+def sub_ret(command):
 
-    pass
+    subprocess.run(command)
+    sys.stdout.write('\n$ ')
+    return None
 
 def main():
 
@@ -46,7 +48,7 @@ def main():
             case default:
 
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_full, text = True)
+                    sub_ret(command_full)
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
