@@ -14,7 +14,6 @@ def main():
     
     sys.stdout.write('$ ')
 
-
     while True:
 
         command = input()
@@ -47,7 +46,7 @@ def main():
             case default:
 
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_full)
+                    subprocess.run(command_full, stdout=subprocess.PIPE)
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
