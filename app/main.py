@@ -11,7 +11,6 @@ def get_command_name(command, command_list):
 def main():
 
     command_list = ['exit', 'echo', 'type', 'PATH', 'pwd', 'cd']
-    PATH = []
     
     sys.stdout.write('$ ')
 
