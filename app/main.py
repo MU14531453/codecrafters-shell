@@ -4,12 +4,6 @@ import shutil
 import random
 import subprocess
 
-def sub_ret(command):
-
-    subprocess.run(command)
-    sys.stdout.write('\n$ ')
-    return None
-
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
@@ -48,7 +42,7 @@ def main():
             case default:
 
                 if identifier := shutil.which(identifier if identifier else ''):
-                    sub_ret(command_full)
+                    os.system(command_full)
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
