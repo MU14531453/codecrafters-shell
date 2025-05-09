@@ -12,7 +12,7 @@ def main():
 
     while True:
 
-        command = input()
+        command = input().rstrip()
 
         command_full = command.split(' ')
         identifier = command_full[0]
@@ -42,7 +42,7 @@ def main():
             case default:
 
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_full[:-1])
+                    subprocess.run(command_full)
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
