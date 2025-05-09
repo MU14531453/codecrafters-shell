@@ -34,7 +34,7 @@ def main():
                     sys.stdout.write(f'{command_full[1]}: not found')
 
             case 'pwd':
-                sys.stdout.write(os.getcwd())
+                pass
 
             case 'cd':
                 pass
@@ -42,8 +42,7 @@ def main():
             case default:
 
                 if identifier := shutil.which(identifier if identifier else ''):
-                    t = subprocess.run(command_full)
-                    sys.stdout.write(str(t))
+                    subprocess.run(command_full)
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
