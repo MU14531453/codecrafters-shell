@@ -53,6 +53,8 @@ def main():
                 pass
 
             case default:
+                if False:
+                    pass
                 #if command in shutil.which(PATH):
                     #subprocess.call(command)
                     #ret = subprocess.run(command)
