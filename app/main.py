@@ -48,6 +48,7 @@ def main():
 
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
+                    sys.stdout.write('\n$ ')
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
