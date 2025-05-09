@@ -10,7 +10,7 @@ def get_command_name(command, command_list):
 
 def main():
 
-    command_list = ['exit', 'echo', 'type', 'PATH', 'pwd', 'cd']
+    command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     
     sys.stdout.write('$ ')
 
@@ -48,7 +48,6 @@ def main():
 
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
-                    sys.stdout.write('\n$ ')
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
