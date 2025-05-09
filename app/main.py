@@ -18,7 +18,7 @@ def main():
 
     while True:
 
-        command = input().replace('=', ' ')
+        command = input()
 
         command_full = command.split(' ')
         identifier = command_full[0]
@@ -29,7 +29,7 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                sys.stdout.write(command_full[1])
+                sys.stdout.write(command.split(' ', 1)[1])
 
             case 'type':
                 if command_full[1].strip() in command_list:
@@ -39,13 +39,13 @@ def main():
                 else:
                     sys.stdout.write(f'{command_full[1]}: not found')
             
-            case 'PATH':
-                PATH = []
-
-                command_full[1] = command_full[1][:-5]
-
-                for filepath in command_full[1].split(':'):
-                    PATH.append(filepath)
+            #case 'PATH':
+            #    PATH = []
+            #
+            #    command_full[1] = command_full[1][:-5]
+#
+ #               for filepath in command_full[1].split(':'):
+  #                  PATH.append(filepath)
 
             case 'pwd':
                 sys.stdout.write(os.getcwd())
