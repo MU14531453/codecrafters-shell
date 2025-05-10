@@ -109,9 +109,11 @@ def main():
 
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    print(identifier)
-                    for file_directory in parser(command_full[1], as_list = True):
-                        subprocess.run(identifier + file_directory)
+                    if identifier == 'cat':
+                        command_full[1] = parser(command_full[1])
+                        subprocess.run(command_full)
+                    else:
+                        subprocess.run(command_full)
                 else:
                     print(f'{command}: command not found')
                 
