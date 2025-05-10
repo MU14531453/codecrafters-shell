@@ -39,6 +39,7 @@ def parser(string, as_list = False, as_cat = False):
                 string_builder = str()
             else:
                 string_builder += char
+
         elif is_double_quoted:
             if ord(char) == 92:
                 if (len(string) - x):
@@ -48,6 +49,8 @@ def parser(string, as_list = False, as_cat = False):
                 string_builder += char
         else:
             string_builder += char
+        
+        print(string_builder)
 
     result.append(string_builder)
 
