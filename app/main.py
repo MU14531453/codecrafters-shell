@@ -5,7 +5,7 @@ import random
 import subprocess
 from pathlib import Path
 
-def parser(string, as_list = False, as_cat = False):
+def parser(string, as_list = False):
 
     string_builder = str()
     result = []
@@ -19,8 +19,6 @@ def parser(string, as_list = False, as_cat = False):
             if is_double_quoted:
                 string_builder += char
             elif is_single_quoted:
-                #result.append(string_builder)
-                #string_builder = str()
                 is_single_quoted = False
                 continue
             else:
@@ -31,8 +29,6 @@ def parser(string, as_list = False, as_cat = False):
             if is_single_quoted:
                 string_builder += char
             elif is_double_quoted:
-                #result.append(string_builder)
-                #string_builder = ''
                 is_double_quoted = False
                 continue
             else:
@@ -61,11 +57,6 @@ def parser(string, as_list = False, as_cat = False):
     while '' in result:
         result.remove('')
 
-    if as_cat:
-        for x, element in enumerate(result):
-            while result[x][-1] == ' ' or result[x][-1].isnumeric():
-                result[x] = result[x][:-1]
-
     if as_list:
         return result
     else:
@@ -85,7 +76,12 @@ def main():
         command_full = command.split(' ', 1)
         identifier = command_full[0]
 
-        command_full[1] = parser(command_full[1])
+        if identifier != 'cat':
+            command_full[1] = parser(command_full[1])
+        else:
+            arglist = parser(command_full[1], as_list = True)
+            for x, fil in enumerate(arglist):
+                arglist[x] = fil.split(' ')[-1]
 
         match identifier:
 
