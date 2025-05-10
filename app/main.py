@@ -73,15 +73,11 @@ def main():
 
         command = input().rstrip()
 
-        command_full = command.split(' ', 1)
+        command_full = parser(command).split(' ', 1)
+        print(command_full)
         identifier = command_full[0]
 
-        if identifier != 'cat':
-            command_full[1] = parser(command_full[1])
-        else:
-            arglist = parser(command_full[1], as_list = True)
-            for x, fil in enumerate(arglist):
-                arglist[x] = fil.split(' ')[-1]
+        #command_full[1] = parser(command_full[1])
 
         match identifier:
 
