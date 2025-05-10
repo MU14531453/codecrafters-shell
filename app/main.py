@@ -115,10 +115,11 @@ def main():
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
 
-            #case 'cat':
-            #    file_list = parser(command_full[1], as_cat = True, as_list = True)
-            #    for f in file_list:
-            #        subprocess.run(identifier + ' ' + f)
+            case 'cat':
+                file_list = parser(command_full[1], as_list = True)
+                for f in file_list:
+                    file_name = f.split(' ')[-1]
+                    subprocess.run(identifier + ' ' + file_name)
 
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
