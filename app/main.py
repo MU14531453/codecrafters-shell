@@ -85,7 +85,7 @@ def main():
         command_full = command.split(' ', 1)
         identifier = command_full[0]
 
-        command_full[1] = parser(command_full[1])
+        command_full[1] = parser(command_full[1], as_list = True)
 
         match identifier:
 
@@ -93,7 +93,7 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                print(command_full[1])
+                print(''.join(command_full[1]))
 
             case 'type':
                 if command_full[1].strip() in command_list:
