@@ -1,0 +1,66 @@
+def parser(string):
+
+    string_builder = str()
+    result = []
+
+    is_single_quoted = False
+    is_double_quoted = False
+
+    for x, char in enumerate(string):
+        
+        if char == "'":
+            if is_double_quoted:
+                string_builder += char
+            elif is_single_quoted:
+                result.append(string_builder)
+                string_builder = str()
+                is_single_quoted = False
+                continue
+            else:
+                is_single_quoted = True
+                continue
+
+        if char == '"':
+            if is_single_quoted:
+                string_builder += char
+            elif is_double_quoted:
+                result.append(string_builder)
+                string_builder = ''
+                is_double_quoted = False
+                continue
+            else:
+                is_double_quoted = True
+                continue
+
+        if not (is_single_quoted and is_double_quoted):
+
+            if string in (' ', chr(92)):
+                result.append(string_builder)
+                string_builder = str()
+            else:
+                string_builder += char
+        elif is_double_quoted:
+            if ord(char) == 92:
+                if (len(string) - x):
+                    if string[x+1] in ('$', chr(92), '"', '\n'):
+                        string_builder += char
+                    else:
+                        continue
+                else:
+                    continue
+            else:
+                continue
+        else:
+            string_builder += char
+
+    result.append(string_builder)
+
+    return ' '.join(result)
+
+print("'")
+print(parser("'aaa'"))
+print(parser('"aaa"'))
+
+print(parser('aaaa "\$"'))
+print(parser('aaaa "\ź"'))
+

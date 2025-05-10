@@ -5,16 +5,63 @@ import random
 import subprocess
 from pathlib import Path
 
-def single_quote(string):
-    if string[0] == string[-1] == "'":
-        return string[1:-1]
-    else:
-        return string
+def parser(string):
+
+    string_builder = str()
+    result = []
+
+    is_single_quoted = False
+    is_double_quoted = False
+
+    for x, char in enumerate(string):
+        
+        if char == "'":
+            if is_double_quoted:
+                string_builder += char
+            elif is_single_quoted:
+                result.append(string_builder)
+                string_builder = str()
+                is_single_quoted = False
+                continue
+            else:
+                is_single_quoted = True
+                continue
+
+        if char == '"':
+            if is_single_quoted:
+                string_builder += char
+            elif is_double_quoted:
+                result.append(string_builder)
+                string_builder = ''
+                is_double_quoted = False
+                continue
+            else:
+                is_double_quoted = True
+                continue
+
+        if not (is_single_quoted and is_double_quoted):
+
+            if string in (' ', chr(92)):
+                result.append(string_builder)
+                string_builder = str()
+            else:
+                string_builder += char
+        elif is_double_quoted:
+            if ord(char) == 92:
+                if (len(string) - x):
+                    if string[x+1] in ('$', chr(92), '"', '\n'):
+                        string_builder += char
+        else:
+            string_builder += char
+
+    result.append(string_builder)
+
+    return ' '.join(result)
+
 
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
-    string_builder = ''
     
     print('$ ', end = '')
 
@@ -25,15 +72,13 @@ def main():
         command_full = command.split(' ', 1)
         identifier = command_full[0]
 
-        command_full[1] = single_quote(command_full[1])
-
         match identifier:
 
             case 'exit':
                 exit(int(command_full[1]))
 
             case 'echo':
-                print(command_full[1])
+                print(parser(command_full[1]))
 
             case 'type':
                 if command_full[1].strip() in command_list:
