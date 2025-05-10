@@ -114,7 +114,7 @@ def main():
             case 'cat':
                 file_list = parser(command_full[1], as_cat = True, as_list = True)
                 for f in file_list:
-                    subprocess.run(identifier + ' ' + f)
+                    subprocess.run('gc ' + f)
 
             case default:
                 print(identifier)
