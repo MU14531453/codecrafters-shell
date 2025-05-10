@@ -39,9 +39,9 @@ def parser(string):
                 is_double_quoted = True
                 continue
 
-        if not (is_single_quoted and is_double_quoted):
+        if not any([is_single_quoted, is_double_quoted]):
 
-            if string in (' ', chr(92)):
+            if char == ' ' or string == chr(92):
                 result.append(string_builder)
                 string_builder = str()
             else:
