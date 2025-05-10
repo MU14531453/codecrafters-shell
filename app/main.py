@@ -74,10 +74,7 @@ def main():
         command = input().rstrip()
 
         command_full = parser(command).split(' ', 1)
-        print(command_full)
         identifier = command_full[0]
-
-        #command_full[1] = parser(command_full[1])
 
         match identifier:
 
@@ -108,6 +105,7 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case default:
+                print(command_full)
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
                 else:
