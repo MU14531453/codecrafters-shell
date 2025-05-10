@@ -55,8 +55,6 @@ def parser(string, as_list = False, as_cat = False):
                 string_builder += char
         else:
             string_builder += char
-        
-        print(string_builder)
 
     result.append(string_builder)
 
