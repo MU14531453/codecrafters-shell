@@ -35,7 +35,7 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                print(command.split(' ', 1)[1])
+                print(''.join([_ for _ in command_full[1:]]))
 
             case 'type':
                 if command_full[1].strip() in command_list:
