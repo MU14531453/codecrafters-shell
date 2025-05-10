@@ -22,12 +22,10 @@ def main():
 
         command = input().rstrip()
 
-        command_full = command.split(' ')
+        command_full = command.split(' ', 1)
         identifier = command_full[0]
 
-        for x, argument in enumerate(command_full):
-            if x:
-                command_full[x] = single_quote(command_full[x])
+        command_full[1] = single_quote(command_full[1])
 
         match identifier:
 
@@ -35,7 +33,7 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                print(''.join([_ for _ in command_full[1:]]))
+                print(command_full[1])
 
             case 'type':
                 if command_full[1].strip() in command_list:
