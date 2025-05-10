@@ -3,6 +3,7 @@ import os
 import shutil
 import random
 import subprocess
+from pathlib import Path
 
 def main():
 
@@ -37,16 +38,17 @@ def main():
                 print(os.getcwd())
 
             case 'cd':
-                try:
-                    os.chdir(command_full[1])
-                except FileNotFoundError:
-                    print(f'cd: {command_full[1]}: No such file or directory')
+                if command_full[1] == '~':
+                    os.chdir(Path.home())
+                else:
+                    try:
+                        os.chdir(command_full[1])
+                    except FileNotFoundError:
+                        print(f'cd: {command_full[1]}: No such file or directory')
 
             case default:
-
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
-                    #print('test')
                 else:
                     print(f'{command}: command not found')
                 
