@@ -105,7 +105,7 @@ def main():
 
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(parser(command_full))
+                    subprocess.run([identifier, parser(command_full[1])])
                 else:
                     print(f'{command}: command not found')
                 
