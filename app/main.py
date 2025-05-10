@@ -56,6 +56,9 @@ def parser(string):
 
     result.append(string_builder)
 
+    while '' in result:
+        result.remove('')
+
     return ' '.join(result)
 
 
