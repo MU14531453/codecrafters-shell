@@ -112,6 +112,7 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case default:
+                print(identifier)
                 if identifier := shutil.which(identifier if identifier else ''):
                     if identifier == 'cat:':
                         file_list = parser(command_full[1], as_cat = True, as_list = True)
