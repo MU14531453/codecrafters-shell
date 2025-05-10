@@ -43,6 +43,7 @@ def main():
 
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
+                    sys.stdout.write('tutaj')
                 else:
                     sys.stdout.write(f'{command}: command not found')
                 
