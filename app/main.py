@@ -5,7 +5,7 @@ import random
 import subprocess
 from pathlib import Path
 
-def parser(string, as_list = False):
+def parser(string, as_list = False, as_cat = False):
 
     string_builder = str()
     result = []
@@ -59,6 +59,11 @@ def parser(string, as_list = False):
     while '' in result:
         result.remove('')
 
+    if as_cat:
+        for x, element in enumerate(result):
+            while result[x][-1] == ' ' or result[x][-1].isnumeric():
+                result[x] = result[x][:-1]
+
     
     if as_list:
         return result
@@ -110,7 +115,7 @@ def main():
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
                     if identifier == 'cat':
-                        command_full[1] = parser(command_full[1])
+                        command_full[1] = parser(command_full[1], as_cat = True)
                         subprocess.run(command_full)
                     else:
                         subprocess.run(command_full)
