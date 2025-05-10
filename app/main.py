@@ -8,7 +8,7 @@ def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     
-    print('$ ')
+    print('$ ', end = '')
 
     while True:
 
@@ -47,7 +47,7 @@ def main():
                 else:
                     print(f'{command}: command not found')
                 
-        print('$  ')
+        print('$ ', end = '')
 
 
 if __name__ == '__main__':
