@@ -5,9 +5,16 @@ import random
 import subprocess
 from pathlib import Path
 
+def single_quote(string):
+    if string[0] == string[-1] == "'":
+        return string[1:-2]
+    else:
+        return string
+
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
+    string_builder = ''
     
     print('$ ', end = '')
 
@@ -17,6 +24,10 @@ def main():
 
         command_full = command.split(' ')
         identifier = command_full[0]
+
+        for x, argument in enumerate(command_full):
+            if x:
+                command_full[x] = single_quote(argument)
 
         match identifier:
 
