@@ -34,7 +34,7 @@ def main():
                     print(f'{command_full[1]}: not found')
 
             case 'pwd':
-                sys.stdout.write(os.getcwd())
+                print(os.getcwd())
 
             case 'cd':
                 os.chdir(command_full[1])
