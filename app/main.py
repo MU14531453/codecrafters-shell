@@ -114,6 +114,8 @@ def main():
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
+                elif identifier == 'cat':
+                    subprocess.run('cat' + ' '.join([i for i in arglist]))
                 else:
                     print(f'{command}: command not found')
                 
