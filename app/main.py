@@ -34,10 +34,10 @@ def main():
                     print(f'{command_full[1]}: not found')
 
             case 'pwd':
-                pass
+                sys.stdout.write(os.getcwd())
 
             case 'cd':
-                pass
+                os.chdir(command_full[1])
 
             case default:
 
