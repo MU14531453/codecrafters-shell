@@ -27,7 +27,7 @@ def main():
 
         for x, argument in enumerate(command_full):
             if x:
-                command_full[x] = single_quote(argument)
+                command_full[x] = single_quote(command_full[x])
 
         match identifier:
 
