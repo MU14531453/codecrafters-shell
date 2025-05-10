@@ -7,7 +7,7 @@ from pathlib import Path
 
 def single_quote(string):
     if string[0] == string[-1] == "'":
-        return string[1:-2]
+        return string[1:-1]
     else:
         return string
 
