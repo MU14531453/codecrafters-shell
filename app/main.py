@@ -55,6 +55,8 @@ def parser(string, as_list = False, as_cat = False):
                 string_builder += char
         else:
             string_builder += char
+        
+        print(string_builder)
 
     result.append(string_builder)
 
@@ -93,7 +95,7 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                print(parser(command_full[1]))
+                print(parser("'" + command_full[1] + "'"))
 
             case 'type':
                 if command_full[1].strip() in command_list:

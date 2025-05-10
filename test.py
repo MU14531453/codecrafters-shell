@@ -65,5 +65,5 @@ def parser(string, as_list = False, as_cat = False):
     else:
         return ' '.join(result)
 
-print(parser("'example     world' 'hello''shell'"))
+print(parser("'test     example' 'script''shell'"))
 #print(parser("cat '/tmp/qux/f   15' '/tmp/qux/f   10' '/tmp/qux/f   70'", as_cat = True, as_list = True))
