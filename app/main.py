@@ -109,14 +109,13 @@ def main():
                     try:
                         os.chdir(command_full[1])
                     except FileNotFoundError:
-                        print('dsadsdsadsdsadsasddssda')
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
                 elif identifier == 'cat':
-                    print(arglist)
+                    command_full[1].replace("'", '')
                     subprocess.run('cat' + ' '.join([i for i in arglist]))
                 else:
                     print(f'{command}: command not found')
