@@ -63,7 +63,6 @@ def parser(string, as_list = False, as_cat = False):
         for x, element in enumerate(result):
             while result[x][-1] == ' ' or result[x][-1].isnumeric():
                 result[x] = result[x][:-1]
-        print(result)
     
     if as_list:
         return result
@@ -116,6 +115,7 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     if identifier == 'cat':
                         file_list = parser(command_full[1], as_cat = True, as_list = True)
+                        print(file_list)
                         for f in file_list:
                             subprocess.run(identifier + f)
                     else:
