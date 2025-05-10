@@ -51,6 +51,8 @@ def parser(string, as_list = False, as_cat = False):
                 if (len(string) - x):
                     if string[x+1] in ('$', chr(92), '"', '\n'):
                         string_builder += char
+            else:
+                string_builder += char
         else:
             string_builder += char
 
