@@ -37,7 +37,10 @@ def main():
                 print(os.getcwd())
 
             case 'cd':
-                os.chdir(command_full[1])
+                try:
+                    os.chdir(command_full[1])
+                except FileNotFoundError:
+                    print(f'cd: <{command_full[1]}>: No such file or directory')
 
             case default:
 
