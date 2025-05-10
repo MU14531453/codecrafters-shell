@@ -115,6 +115,7 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
                 elif identifier == 'cat':
+                    print('dsadssdadsadsaasdsaddsadsadssdadsadasdsadsa')
                     command_full[1].replace("'", '')
                     subprocess.run('cat' + ' '.join([i for i in arglist]))
                 else:
