@@ -8,7 +8,7 @@ def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     
-    sys.stdout.write('$ ')
+    print('$ ')
 
     while True:
 
@@ -23,15 +23,15 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                sys.stdout.write(command.split(' ', 1)[1])
+                print(command.split(' ', 1)[1])
 
             case 'type':
                 if command_full[1].strip() in command_list:
-                    sys.stdout.write(f'{command_full[1]} is a shell builtin')
+                    print(f'{command_full[1]} is a shell builtin')
                 elif PATH := shutil.which(command_full[1] if command_full[1] else ''):
-                    sys.stdout.write(f'{command_full[1]} is {PATH}')
+                    print(f'{command_full[1]} is {PATH}')
                 else:
-                    sys.stdout.write(f'{command_full[1]}: not found')
+                    print(f'{command_full[1]}: not found')
 
             case 'pwd':
                 pass
@@ -43,11 +43,11 @@ def main():
 
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
-                    #sys.stdout.write('test')
+                    #print('test')
                 else:
-                    sys.stdout.write(f'{command}: command not found')
+                    print(f'{command}: command not found')
                 
-        sys.stdout.write('\n$ ')
+        print('\n$ ')
 
 
 if __name__ == '__main__':
