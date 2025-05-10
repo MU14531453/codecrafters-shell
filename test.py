@@ -12,8 +12,8 @@ def parser(string):
             if is_double_quoted:
                 string_builder += char
             elif is_single_quoted:
-                result.append(string_builder)
-                string_builder = str()
+                #result.append(string_builder)
+                #string_builder = str()
                 is_single_quoted = False
                 continue
             else:
@@ -49,13 +49,10 @@ def parser(string):
 
     result.append(string_builder)
 
-    print(result)
-
-    #while '' in result:
-    #    result.remove('')
-
-    print(result)
+    while '' in result:
+        result.remove('')
 
     return ' '.join(result)
 
 print(parser('example     world'))
+print(parser("'hello''world'"))

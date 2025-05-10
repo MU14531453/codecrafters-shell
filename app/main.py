@@ -19,8 +19,8 @@ def parser(string):
             if is_double_quoted:
                 string_builder += char
             elif is_single_quoted:
-                result.append(string_builder)
-                string_builder = str()
+                #result.append(string_builder)
+                #string_builder = str()
                 is_single_quoted = False
                 continue
             else:
@@ -31,8 +31,8 @@ def parser(string):
             if is_single_quoted:
                 string_builder += char
             elif is_double_quoted:
-                result.append(string_builder)
-                string_builder = ''
+                #result.append(string_builder)
+                #string_builder = ''
                 is_double_quoted = False
                 continue
             else:
