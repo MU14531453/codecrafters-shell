@@ -5,7 +5,7 @@ import random
 import subprocess
 from pathlib import Path
 
-def parser(string):
+def parser(string, as_list = False):
 
     string_builder = str()
     result = []
@@ -59,7 +59,11 @@ def parser(string):
     while '' in result:
         result.remove('')
 
-    return ' '.join(result)
+    
+    if as_list:
+        return result
+    else:
+        return ' '.join(result)
 
 
 def main():
@@ -105,7 +109,7 @@ def main():
 
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run([identifier, parser(command_full[1])])
+                    subprocess.run([identifier, parser(command_full[1], as_list = True)])
                 else:
                     print(f'{command}: command not found')
                 
