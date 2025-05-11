@@ -7,27 +7,30 @@ def parser(string, as_list = False):
     is_double_quoted = False
 
     for x, char in enumerate(string):
-
-        print(char)
         
         if char == "'":
             if is_double_quoted:
                 string_builder += char
             elif is_single_quoted:
                 is_single_quoted = False
-                continue
             else:
                 is_single_quoted = True
-                continue
+            continue
 
         if char == '"':
             if is_single_quoted:
                 string_builder += char
             elif is_double_quoted:
                 is_double_quoted = False
-                continue
             else:
                 is_double_quoted = True
+            continue
+
+        if ord(char) == 92:
+            if not any([is_single_quoted, is_double_quoted]):
+                continue
+            else:
+                string_builder += char
                 continue
 
         if not any([is_single_quoted, is_double_quoted]):
@@ -56,5 +59,3 @@ def parser(string, as_list = False):
         return result
     else:
         return ' '.join(result)
-    
-print(parser('"world"  "hello' +"'" + 's"  "script"'))
