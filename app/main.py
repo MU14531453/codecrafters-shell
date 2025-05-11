@@ -89,7 +89,7 @@ def main():
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
-            command_full[0] = 'cat'
+            command_full[0] = 'cat '
             command = ''.join(command_full)
 
         match identifier:
