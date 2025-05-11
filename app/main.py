@@ -14,10 +14,13 @@ def parser(string, as_list = False):
     is_double_quoted = False
 
     for x, char in enumerate(string):
+
+        print(char)
         
         if char == "'":
             if is_double_quoted:
                 string_builder += char
+                continue
             elif is_single_quoted:
                 is_single_quoted = False
                 continue
@@ -28,6 +31,7 @@ def parser(string, as_list = False):
         if char == '"':
             if is_single_quoted:
                 string_builder += char
+                continue
             elif is_double_quoted:
                 is_double_quoted = False
                 continue
