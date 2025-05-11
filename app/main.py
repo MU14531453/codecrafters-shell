@@ -77,7 +77,7 @@ def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_builder = ''
-    is_redirecting = False
+    output_file = None
 
     print('$ ', end = '')
 
@@ -87,6 +87,13 @@ def main():
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
+
+        if ('>' in command_full[1]) or ('1>' in command_full[1]):
+
+            command_full[1].replace('1>', '>')
+            io = command_full[1].split('>')
+            output_file = io[1].strip()
+            command_full[1] = io[0]
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
@@ -101,6 +108,8 @@ def main():
 
             case 'echo':
                 print(command_full[1])
+                if output_file:
+                    open(output_file).write(command_full[1])
 
             case 'type':
                 if command_full[1].strip() in command_list:
@@ -128,29 +137,20 @@ def main():
                         string_builder += open(filename).read()
                     except:
                         pass
-                print(string_builder.rstrip())
+                string_builder = string_builder.rstrip()
+                print(string_builder)
+
+                if output_file:
+                    open(output_file).write(string_builder)
+
                 string_builder = ''
 
             case default:
-
-                if '>' in command_full[1] or '1>' in command_full[1]:
-
-                    while command_full[1][0] not in ("'", '"', chr(92)):
-                        command_full[1] = command_full[1][1:]
-
-                    command_full[1].replace('1>', '')
-                    io = command_full[1].split('>')
-                    input_file = io[0].strip()
-                    output_file = io[1].strip()
-
-                    if input_file[0] in ('"', '"'):
-                        input_file = input_file[1:-1]
-                        open(output_file, 'w').write(input_file)
-                    else:
-                        open(output_file, 'w').write(open(input_file, 'r').read())
                     
-                elif identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_full)
+                if identifier := shutil.which(identifier if identifier else ''):
+                    res = subprocess.run(command_full)
+                    if output_file:
+                        open(output_file).write(res)
 
                 else:
                     print(f'{command}: command not found')
