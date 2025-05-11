@@ -115,7 +115,6 @@ def main():
                 string_builder = ''
 
             case default:
-                print(command_full)
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
                 else:
