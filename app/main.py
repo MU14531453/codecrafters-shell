@@ -135,6 +135,8 @@ def main():
 
                 if '>' in command_full[1] or '1>' in command_full[1]:
 
+                    command_full[1] = command_full[1][6:]
+
                     command_full[1].replace('1>', '')
                     io = command_full[1].split('>')
                     input_file = io[0].strip()
