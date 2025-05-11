@@ -74,20 +74,6 @@ def main():
 
         command = input().rstrip()
 
-        #print('command',command)
-
-        if command[:3] == 'cat':
-            for filename in command[3:].split("'"):
-                
-                try:
-                    string_builder += open(filename).read()
-                except:
-                    pass
-            print(string_builder)
-            print('$ ', end = '')
-            string_builder = ''
-            continue
-
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
 
@@ -118,6 +104,15 @@ def main():
                         os.chdir(command_full[1])
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
+
+            case 'cat':
+                for filename in command[3:].split("'"):
+                    try:
+                        string_builder += open(filename).read()
+                    except:
+                        pass
+                print(string_builder.rstrip())
+                string_builder = ''
 
             case default:
                 print(command_full)
