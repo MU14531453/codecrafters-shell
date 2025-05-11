@@ -66,7 +66,9 @@ def parser(string, as_list = False):
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
-    
+
+    subprocess.run(['cmd', 'doskey', 'cat=type'], shell = True)
+
     print('$ ', end = '')
 
     while True:
@@ -104,8 +106,11 @@ def main():
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
 
+            case 'cat':
+                subprocess.run(['type'] + command_full[1:])
+
             case default:
-                print(command_full)
+                print(command_full) 
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
                 else:
