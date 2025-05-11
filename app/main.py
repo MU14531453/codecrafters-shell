@@ -67,8 +67,6 @@ def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
 
-    subprocess.run(['cmd', 'doskey', 'cat=type'], shell = True)
-
     print('$ ', end = '')
 
     while True:
