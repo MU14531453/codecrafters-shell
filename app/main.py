@@ -18,23 +18,27 @@ def parser(string, as_list = False):
         if char == "'":
             if is_double_quoted:
                 string_builder += char
-                continue
             elif is_single_quoted:
                 is_single_quoted = False
-                continue
             else:
                 is_single_quoted = True
-                continue
+            continue
 
         if char == '"':
             if is_single_quoted:
                 string_builder += char
-                continue
             elif is_double_quoted:
                 is_double_quoted = False
-                continue
             else:
                 is_double_quoted = True
+            continue
+
+        if ord(char) == 92:
+            if any([is_single_quoted, is_double_quoted]):
+                string_builder += char
+                continue
+            else:
+                string_builder += ' '
                 continue
 
         if not any([is_single_quoted, is_double_quoted]):
