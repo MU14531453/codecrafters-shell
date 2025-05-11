@@ -31,6 +31,7 @@ def parser(string, as_list = False):
                 string_builder += char
                 continue
             else:
+                string_builder += ' '
                 continue
 
         if not any([is_single_quoted, is_double_quoted]):
