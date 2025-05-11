@@ -73,6 +73,8 @@ def main():
 
         command = input().rstrip()
 
+        print('command',command)
+
         if command[:3] == 'cat':
             for filename in command[3:].split("'"):
                 print(filename)
@@ -80,6 +82,7 @@ def main():
                     open(filename).read()
                 except:
                     pass
+            continue
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
