@@ -12,8 +12,13 @@ def parser(string, as_list = False):
 
     is_single_quoted = False
     is_double_quoted = False
+    is_escaped = False
 
     for x, char in enumerate(string):
+
+        if is_escaped:
+            is_escaped = False
+            continue
         
         if char == "'":
             if is_double_quoted:
@@ -38,6 +43,7 @@ def parser(string, as_list = False):
                 string_builder += char
             else:
                 string_builder += string[x+1]
+                is_escaped = True
             continue
 
         if not any([is_single_quoted, is_double_quoted]):
