@@ -88,6 +88,7 @@ def main():
         identifier = command_full[0]
 
         if command[0] in ("'", '"'):
+            command_full = parser(command, as_list = True)
             print(command_full)
             #command_full[0] = 'cat'
             #identifier = 'cat'
