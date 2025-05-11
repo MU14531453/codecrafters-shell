@@ -105,7 +105,9 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'cat':
-                subprocess.run(['type'] + command_full[1:])
+                for filename in command_full[1:]:
+                    os.chdir(filename.split(' ')[0])
+                    subprocess.run(['type', filename.split(' ')[-1]])
 
             case default:
                 print(command_full) 
