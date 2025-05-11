@@ -135,7 +135,8 @@ def main():
 
                 if '>' in command_full[1] or '1>' in command_full[1]:
 
-                    command_full[1] = command_full[1][6:]
+                    while command_full[1][0] not in ("'", '"', chr(92)):
+                        command_full[1] = command_full[1][1:]
 
                     command_full[1].replace('1>', '')
                     io = command_full[1].split('>')
