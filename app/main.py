@@ -87,6 +87,9 @@ def main():
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
 
+        if command[0] in ("'", '"'):
+            identifier = parser(command, as_list = True)[0]
+
         match identifier:
 
             case 'exit':
