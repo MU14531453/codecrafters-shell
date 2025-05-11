@@ -72,6 +72,14 @@ def parser(string, as_list = False):
     else:
         return ' '.join(result)
 
+def write_to(filepath, text, append = False):
+
+    os.chdir(shutil.which(filepath))
+
+    open(filepath, 'r'*append + 'w').write(text)
+
+    return None
+
 
 def main():
 
@@ -109,7 +117,7 @@ def main():
             case 'echo':
                 print(command_full[1])
                 if output_file:
-                    open(output_file).write(command_full[1])
+                    write_to(output_file, command_full[1])
 
             case 'type':
                 if command_full[1].strip() in command_list:
@@ -141,7 +149,7 @@ def main():
                 print(string_builder)
 
                 if output_file:
-                    open(output_file).write(string_builder)
+                    write_to(output_file, string_builder)
 
                 string_builder = ''
 
@@ -150,7 +158,7 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     res = subprocess.run(command_full)
                     if output_file:
-                        open(output_file).write(res)
+                        write_to(output_file, res)
 
                 else:
                     print(f'{command}: command not found')
