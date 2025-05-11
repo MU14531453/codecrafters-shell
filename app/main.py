@@ -66,6 +66,7 @@ def parser(string, as_list = False):
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
+    string_builder = ''
 
     print('$ ', end = '')
 
@@ -77,10 +78,13 @@ def main():
 
         if command[:3] == 'cat':
             for filename in command[3:].split("'"):
+                
                 try:
-                    print(open(filename).read())
+                    string_builder += open(filename).read()
                 except:
                     pass
+            print(string_builder)
+            string_builder = ''
             continue
 
         command_full = parser(command).split(' ', 1)
