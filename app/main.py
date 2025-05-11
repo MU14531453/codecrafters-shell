@@ -73,7 +73,7 @@ def main():
 
         command = input().rstrip()
 
-        print('command',command)
+        #print('command',command)
 
         if command[:3] == 'cat':
             for filename in command[3:].split("'"):
