@@ -77,7 +77,6 @@ def main():
 
         if command[:3] == 'cat':
             for filename in command[3:].split("'"):
-                print(filename)
                 try:
                     print(open(filename).read())
                 except:
