@@ -106,11 +106,11 @@ def main():
 
             case 'cat':
                 for filename in command_full[1:]:
-                    try:
-                        os.chdir(filename.split(' ')[0])
-                    except FileNotFoundError:
-                        print(f'cd: {filename.split(' ')[0]}: No such file or directory')
-                    open(filename.split(' ')[-1]).read()
+                    #try:
+                    #    os.chdir(filename.split(' ')[0])
+                    #except FileNotFoundError:
+                    #    print(f'cd: {filename.split(' ')[0]}: No such file or directory')
+                    open(filename.replace(' ', '')).read()
 
             case default:
                 print(command_full)
