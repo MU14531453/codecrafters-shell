@@ -108,7 +108,7 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'cat':
-                for filename in command[3:].split("'"):
+                for filename in parser(command[3:], as_list = True):
                     try:
                         string_builder += open(filename).read()
                     except:
