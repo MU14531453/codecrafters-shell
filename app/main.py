@@ -91,7 +91,7 @@ def main():
             command_full = parser(command, as_list = True)
             command_full[0] = 'cat '
             command = ''.join(command_full)
-            identifier = command_full[0]
+            identifier = 'cat'
 
         match identifier:
 
