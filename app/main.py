@@ -39,8 +39,14 @@ def parser(string, as_list = False):
             continue
 
         if ord(char) == 92:
-            if any([is_single_quoted, is_double_quoted]):
+            if is_single_quoted:
                 string_builder += char
+            elif is_double_quoted:
+                if string[x+1] in (chr(92), '$', '"'):
+                    string_builder += string[x+1]
+                    is_escaped = True
+                else:
+                    string_builder += char
             else:
                 string_builder += string[x+1]
                 is_escaped = True
@@ -48,16 +54,9 @@ def parser(string, as_list = False):
 
         if not any([is_single_quoted, is_double_quoted]):
 
-            if char == ' ' or string == chr(92):
+            if char == ' ':
                 result.append(string_builder)
                 string_builder = str()
-            else:
-                string_builder += char
-        elif is_double_quoted:
-            if ord(char) == 92:
-                if (len(string) - x):
-                    if string[x+1] in ('$', chr(92), '"', '\n'):
-                        string_builder += char
             else:
                 string_builder += char
         else:
