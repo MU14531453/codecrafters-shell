@@ -27,10 +27,10 @@ def parser(string, as_list = False):
             continue
 
         if ord(char) == 92:
-            if not any([is_single_quoted, is_double_quoted]):
+            if any([is_single_quoted, is_double_quoted]):
+                string_builder += char
                 continue
             else:
-                string_builder += char
                 continue
 
         if not any([is_single_quoted, is_double_quoted]):
