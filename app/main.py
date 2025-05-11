@@ -158,7 +158,7 @@ def main():
                     
                 if identifier := shutil.which(identifier if identifier else ''):
                     res = subprocess.run(command_full)
-                    if output_file:
+                    if output_file is not None:
                         write_to(output_file, res)
 
                 else:
