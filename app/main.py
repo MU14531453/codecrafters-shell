@@ -84,6 +84,7 @@ def main():
                 except:
                     pass
             print(string_builder)
+            print('$ ', end = '')
             string_builder = ''
             continue
 
@@ -117,10 +118,6 @@ def main():
                         os.chdir(command_full[1])
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
-
-            case 'cat':
-                for filename in command_full[1:]:
-                    open(filename.replace(' ', '')).read()
 
             case default:
                 print(command_full)
