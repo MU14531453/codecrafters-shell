@@ -29,10 +29,9 @@ def parser(string, as_list = False):
         if ord(char) == 92:
             if any([is_single_quoted, is_double_quoted]):
                 string_builder += char
-                continue
             else:
-                string_builder += ' '
-                continue
+                string_builder += string[x+1]
+            continue
 
         if not any([is_single_quoted, is_double_quoted]):
 
@@ -60,3 +59,5 @@ def parser(string, as_list = False):
         return result
     else:
         return ' '.join(result)
+
+print(parser('example\ \ \ \ \ \ test'))
