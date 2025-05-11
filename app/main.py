@@ -73,6 +73,13 @@ def main():
 
         command = input().rstrip()
 
+        if command[:3] == 'cat':
+            for filename in command[3:].split("'"):
+                try:
+                    open(filename).read()
+                except:
+                    pass
+
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
 
@@ -106,10 +113,6 @@ def main():
 
             case 'cat':
                 for filename in command_full[1:]:
-                    #try:
-                    #    os.chdir(filename.split(' ')[0])
-                    #except FileNotFoundError:
-                    #    print(f'cd: {filename.split(' ')[0]}: No such file or directory')
                     open(filename.replace(' ', '')).read()
 
             case default:
