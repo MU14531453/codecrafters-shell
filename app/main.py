@@ -14,8 +14,6 @@ def parser(string, as_list = False):
     is_double_quoted = False
 
     for x, char in enumerate(string):
-
-        print(char)
         
         if char == "'":
             if is_double_quoted:
