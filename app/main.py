@@ -107,10 +107,10 @@ def main():
             case 'cat':
                 for filename in command_full[1:]:
                     os.chdir(filename.split(' ')[0])
-                    subprocess.run(['type', filename.split(' ')[-1]])
+                    open(filename.split(' ')[-1]).read()
 
             case default:
-                print(command_full) 
+                print(command_full)
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
                 else:
