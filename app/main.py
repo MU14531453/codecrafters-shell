@@ -88,8 +88,8 @@ def main():
         identifier = command_full[0]
 
         if command[0] in ("'", '"'):
-            identifier = parser(command, as_list = True)[0]
-
+            identifier = 'cat'
+            
         match identifier:
 
             case 'exit':
