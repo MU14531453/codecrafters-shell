@@ -77,6 +77,7 @@ def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_builder = ''
+    is_redirecting = False
 
     print('$ ', end = '')
 
@@ -131,8 +132,23 @@ def main():
                 string_builder = ''
 
             case default:
-                if identifier := shutil.which(identifier if identifier else ''):
+
+                if '>' in command_full[1] or '1>' in command_full[1]:
+
+                    command_full[1].replace('1>', '')
+                    io = command_full[1].split('>')
+                    input_file = io[0].strip()
+                    output_file = io[1].strip()
+
+                    if input_file[0] in ('"', '"'):
+                        input_file = input_file[1:-1]
+                        open(output_file, 'w').write(input_file)
+                    else:
+                        open(output_file, 'w').write(open(input_file, 'r').read())
+                    
+                elif identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_full)
+
                 else:
                     print(f'{command}: command not found')
                 
