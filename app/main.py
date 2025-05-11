@@ -79,7 +79,7 @@ def main():
             for filename in command[3:].split("'"):
                 print(filename)
                 try:
-                    open(filename).read()
+                    print(open(filename).read())
                 except:
                     pass
             continue
