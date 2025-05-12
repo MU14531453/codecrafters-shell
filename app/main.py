@@ -75,7 +75,7 @@ def parser(string, as_list = False):
 
 def write_to(filepath, text, append = False):
 
-    subprocess.run(['cd', filepath])
+    subprocess.run(['cmd', 'cd', filepath])
 
     open(filepath, 'r'*append + 'w').write(text)
 
