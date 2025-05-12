@@ -4,6 +4,7 @@ import shutil
 import random
 import subprocess
 from pathlib import Path
+import readline
 
 def parser(string, as_list = False):
 
@@ -74,7 +75,7 @@ def parser(string, as_list = False):
 
 def write_to(filepath, text, append = False):
 
-    os.chdir(shutil.which(filepath))
+    subprocess.run(['cd', filepath])
 
     open(filepath, 'r'*append + 'w').write(text)
 
@@ -84,6 +85,7 @@ def write_to(filepath, text, append = False):
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
+    write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
     string_builder = ''
     output_file = None
 

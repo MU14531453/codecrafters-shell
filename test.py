@@ -1,7 +1,5 @@
 
 
-a = 'ccccccccc'
+a = False
 
-a.replace('b', 'j')
-
-print(a)
+print('b'*a + 'C')
