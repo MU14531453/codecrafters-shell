@@ -4,7 +4,7 @@ import shutil
 import random
 import subprocess
 from pathlib import Path
-import readline
+#git statusimport readline
 
 def parser(string, as_list = False):
 
@@ -104,7 +104,7 @@ def main():
             io = command_full[1].split('>')
             output_file = io[1].strip()
             command_full[1] = io[0]
-            print(output_file)
+            #print(output_file)
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
