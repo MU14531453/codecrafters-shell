@@ -77,7 +77,7 @@ def write_to(filepath, text, append = False):
 
     #os.chdir(filepath)
 
-    open(filepath, 'r'*append + 'w').write(text)
+    open(filepath, 'r'*append + 'w').write(str(text))
 
     return None
 
