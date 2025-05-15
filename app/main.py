@@ -117,9 +117,11 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                print(command_full[1])
+                
                 if output_file:
                     write_to(output_file, command_full[1])
+                else:
+                    print(command_full[1])
 
             case 'type':
                 if command_full[1].strip() in command_list:
@@ -142,7 +144,7 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'cat':
-                subprocess.run(command, shell = True)
+                subprocess.run([command], shell = True)
                 #for filename in parser(command[3:], as_list = True):
                 #    try:
                 #        string_builder += open(filename).read()
