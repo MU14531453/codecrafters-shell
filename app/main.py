@@ -159,7 +159,7 @@ def main():
 
             case 'ls':
 
-                subprocess.run(['dir', command_full[1]])
+                subprocess.run([f'dir {command_full[1]}'])#,shell = True)
                 print('tutaj')
 
             case default:
