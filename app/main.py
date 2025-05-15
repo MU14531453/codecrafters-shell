@@ -75,7 +75,7 @@ def parser(string, as_list = False):
 
 def write_to(filepath, text, append = False):
 
-    #os.chdir(filepath)
+    os.chdir(filepath)
 
     open(filepath, 'r'*append + 'w').write(str(text))
 
@@ -115,7 +115,6 @@ def main():
             case 'echo':
                 
                 if output_file:
-                    print('tutaj')
                     write_to(output_file, command_full[1])
                 else:
                     print(command_full[1])
