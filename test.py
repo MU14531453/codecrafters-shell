@@ -1,13 +1,4 @@
+a = [1, 2, 3]
+b = [3, 4, 5]
 
-import subprocess
-import os
-
-def write_foo(command):
-
-    command_sp = command.split('>')
-
-    os.system(command_sp[0])
-
-    return None
-
-subprocess.run(['echo', 'csadcad'])
+print([x for x in b if x in a])
