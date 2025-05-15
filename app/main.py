@@ -112,8 +112,10 @@ def main():
             command_full[0] = 'cat '
             command = ''.join(command_full)
             identifier = 'cat'
-
+        print(identifier)
         match identifier:
+
+            
 
             case 'exit':
                 exit(int(command_full[1]))
