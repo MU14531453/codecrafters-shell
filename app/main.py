@@ -104,6 +104,8 @@ def main():
             io = command_full[1].split('>')
             output_file = io[1].strip()
             command_full[1] = io[0]
+            print(command_full[1])
+            exit(0)
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
