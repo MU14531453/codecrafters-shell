@@ -6,14 +6,6 @@ import subprocess
 from pathlib import Path
 #git statusimport readline
 
-def write_foo(command):
-
-    command_sp = command.split('>')
-
-    subprocess.run(command_sp[0])
-
-    return None
-
 def parser(string, as_list = False):
 
     string_builder = str()
@@ -108,7 +100,6 @@ def main():
 
         if ('>' in command_full[1]) or ('1>' in command_full[1]):
 
-            #write_foo(command)
             exit(0)
 
             command_full[1].replace('1>', '>')
@@ -168,7 +159,7 @@ def main():
 
             case 'ls':
 
-                subprocess.run(['dir', command_full[1]])
+                os.system(['dir', command_full[1]])
 
             case default:
                     
