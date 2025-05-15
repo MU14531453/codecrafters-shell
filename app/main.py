@@ -108,7 +108,7 @@ def main():
 
         if ('>' in command_full[1]) or ('1>' in command_full[1]):
 
-            write_foo(command)
+            #write_foo(command)
             exit(0)
 
             command_full[1].replace('1>', '>')
@@ -165,6 +165,10 @@ def main():
                     write_to(output_file, string_builder)
 
                 string_builder = ''
+
+            case 'ls':
+
+                subprocess.run(['dir', command_full[1]])
 
             case default:
                     
