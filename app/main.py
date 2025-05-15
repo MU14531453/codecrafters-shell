@@ -6,6 +6,14 @@ import subprocess
 from pathlib import Path
 #git statusimport readline
 
+def write_foo(command):
+
+    command_sp = command.split('>')
+
+    subprocess.run(command_sp[0])
+
+    return None
+
 def parser(string, as_list = False):
 
     string_builder = str()
@@ -100,11 +108,13 @@ def main():
 
         if ('>' in command_full[1]) or ('1>' in command_full[1]):
 
+            write_foo(command)
+            exit(0)
+
             command_full[1].replace('1>', '>')
             io = command_full[1].split('>')
             output_file = io[1].strip()
             command_full[1] = io[0]
-            #print(output_file)
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
