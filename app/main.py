@@ -110,10 +110,8 @@ def main():
             command_full[0] = 'cat '
             command = ''.join(command_full)
             identifier = 'cat'
-        print(identifier)
+        
         match identifier:
-
-            
 
             case 'exit':
                 exit(int(command_full[1]))
@@ -158,15 +156,12 @@ def main():
                 string_builder = ''
 
             case 'ls':
-                print('111111')
                 subprocess.run([f'dir {command_full[1]}'])#,shell = True)
-                print('tutaj')
 
             case default:
                     
                 if identifier := shutil.which(identifier if identifier else ''):
                     res = subprocess.run(command_full)
-                    print('2222222222222222')
                     if output_file is not None:
                         write_to(output_file, res)
 
