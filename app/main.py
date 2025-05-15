@@ -118,6 +118,7 @@ def main():
             case 'echo':
                 
                 if output_file:
+                    print('tutaj')
                     write_to(output_file, command_full[1])
                 else:
                     print(command_full[1])
