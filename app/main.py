@@ -158,7 +158,7 @@ def main():
                 string_builder = ''
 
             case 'ls':
-
+                print('111111')
                 subprocess.run([f'dir {command_full[1]}'])#,shell = True)
                 print('tutaj')
 
