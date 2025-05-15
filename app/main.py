@@ -98,11 +98,8 @@ def main():
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
 
-        #if any([x for x in command if x in write_list]):
-        #    command.replace('1>', '>')
-        #    io = command.split('>')
-        #    command = io[0]
-        #    output_file = io[1]
+        if any([x for x in command if x in write_list]):
+            output_file = command.replace('1>', '>').split('>')[1]
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
