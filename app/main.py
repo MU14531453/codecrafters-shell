@@ -157,7 +157,8 @@ def main():
 
             case 'ls':
                 print(command_full)
-                subprocess.run([f'ls {command_full[1]}'], shell = True)
+                #subprocess.run([f'ls {command_full[1]}'], shell = True)
+                subprocess.run([command], shell = True)
 
             case default:
                     
