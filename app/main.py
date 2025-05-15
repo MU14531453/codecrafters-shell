@@ -166,6 +166,7 @@ def main():
                     
                 if identifier := shutil.which(identifier if identifier else ''):
                     res = subprocess.run(command_full)
+                    print('2222222222222222')
                     if output_file is not None:
                         write_to(output_file, res)
 
