@@ -156,7 +156,7 @@ def main():
                 string_builder = ''
 
             case 'ls':
-                subprocess.run([f'dir {command_full[1]}'])#,shell = True)
+                subprocess.run([f'dir {command_full[1]}'],shell = True)
 
             case default:
                     
