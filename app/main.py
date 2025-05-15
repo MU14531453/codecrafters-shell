@@ -160,6 +160,7 @@ def main():
             case 'ls':
 
                 os.system(['dir', command_full[1]])
+                print('tutaj')
 
             case default:
                     
