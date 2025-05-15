@@ -100,8 +100,6 @@ def main():
 
         if ('>' in command_full[1]) or ('1>' in command_full[1]):
 
-            exit(0)
-
             command_full[1].replace('1>', '>')
             io = command_full[1].split('>')
             output_file = io[1].strip()
