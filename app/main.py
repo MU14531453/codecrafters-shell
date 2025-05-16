@@ -155,7 +155,7 @@ def main():
                     print(string_builder)
                 
                 else:
-                    for filename in parser(command[3:command.index('>')], as_list = True):
+                    for filename in parser(command[3:], as_list = True):
                         try:
                             string_builder += open(filename).read()
                         except:
