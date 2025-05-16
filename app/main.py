@@ -76,6 +76,7 @@ def parser(string, as_list = False):
 def write_to(filepath, text, append = False):
 
     print('filepath:', filepath)
+    print('filepath type:', type(filepath))
     print('text:', text)
 
     os.chdir(shutil.which(filepath))
