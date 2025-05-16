@@ -102,7 +102,9 @@ def main():
         identifier = command_full[0]
 
         if any([x for x in command if x in write_list]):
-            output_file = command.replace('1>', '>').split('>')[1]
+            io_splitter = command.replace('1>', '>').split('>')
+            command = io_splitter[0]
+            output_file = io_splitter[1]
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
