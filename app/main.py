@@ -144,7 +144,6 @@ def main():
 
             case 'cat':
                 subprocess.run([command], shell = True)
-                print()
                 #for filename in parser(command[3:], as_list = True):
                 #    try:
                 #        string_builder += open(filename).read()
