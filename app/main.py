@@ -73,11 +73,13 @@ def parser(string, as_list = False):
     else:
         return ' '.join(result)
 
-def write_to(filepath, text, append = False):
+def write_to(file, text, append = False):
 
     print('filepath:', filepath)
     print('filepath type:', type(filepath))
     print('text:', text)
+
+    filepath = file[::-1].split(chr(92))[1][::-1]
 
     os.chdir(shutil.which(filepath))
 
