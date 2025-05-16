@@ -169,10 +169,9 @@ def main():
                 #print(command_full)
                 #subprocess.run([f'ls {command_full[1]}'], shell = True)
                 if not output_file:
-                    print('tutaj niby nie')
                     subprocess.run([command], shell = True)
                 else:
-                    print('tutaj')
+                    #print('tutaj')
                     res = subprocess.run([command], shell = True, stdin = None)
                     write_to(output_file, res)
                 pass
