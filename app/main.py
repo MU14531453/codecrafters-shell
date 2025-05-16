@@ -77,8 +77,8 @@ def write_to(file, text, append = False):
 
     print('file', file)
 
-    filepath = file[::-1].split(chr(92))[1][::-1]
-    file_name = file[::-1].split(chr(92))[0][::-1]
+    filepath = file[::-1].split(chr(92), 1)[1][::-1]
+    file_name = file[::-1].split(chr(92), 1)[0][::-1]
 
     print('filepath', filepath)
 
