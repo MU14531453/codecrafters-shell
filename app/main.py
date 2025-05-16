@@ -170,7 +170,7 @@ def main():
                     subprocess.run([command], shell = True)
                 else:
                     print('tutaj')
-                    res = subprocess.run([command], shell = True, capture_output = False)
+                    res = subprocess.run([command], shell = True, capture_output = False, text = False)
                     print(res)
                     write_to(output_file, res)
                 pass
