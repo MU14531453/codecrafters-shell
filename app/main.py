@@ -167,12 +167,11 @@ def main():
 
             case 'ls':
                 #print(command_full)
-                #subprocess.run([f'ls {command_full[1]}'], shell = True)
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
                     #print('tutaj')
-                    res = subprocess.run([command], shell = True, capture_output = None)
+                    res = subprocess.run([command], shell = True, capture_output = False)
                     write_to(output_file, res)
                 pass
 
