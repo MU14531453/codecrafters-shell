@@ -144,17 +144,18 @@ def main():
 
             case 'cat':
                 #subprocess.run([command], shell = True)
-                print('tautaj')
                 for filename in parser(command[3:], as_list = True):
                     try:
                         string_builder += open(filename).read()
                     except:
                         pass
                 string_builder = string_builder.rstrip()
-                print(string_builder)
+                
 
                 if output_file:
                     write_to(output_file, string_builder)
+                else:
+                    print(string_builder)
 
                 string_builder = ''
 
