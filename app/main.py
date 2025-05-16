@@ -75,12 +75,12 @@ def parser(string, as_list = False):
 
 def write_to(file, text, append = False):
 
-    #print('filepath:', filepath)
-    #print('filepath type:', type(filepath))
-    #print('text:', text)
+    print('file', file)
 
     filepath = file[::-1].split(chr(92))[1][::-1]
     file_name = file[::-1].split(chr(92))[0][::-1]
+
+    print('filepath', filepath)
 
     os.chdir(filepath)
 
