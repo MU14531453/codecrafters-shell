@@ -75,15 +75,16 @@ def parser(string, as_list = False):
 
 def write_to(file, text, append = False):
 
-    print('filepath:', filepath)
-    print('filepath type:', type(filepath))
-    print('text:', text)
+    #print('filepath:', filepath)
+    #print('filepath type:', type(filepath))
+    #print('text:', text)
 
     filepath = file[::-1].split(chr(92))[1][::-1]
+    file_name = file[::-1].split(chr(92))[0][::-1]
 
-    os.chdir(shutil.which(filepath))
+    os.chdir(filepath)
 
-    open(filepath, 'r'*append + 'w').write(str(text))
+    open(file_name, 'r'*append + 'w').write(str(text))
 
     return None
 
