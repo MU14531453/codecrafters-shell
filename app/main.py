@@ -169,9 +169,10 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    res = subprocess.run([subprocess.run([command], shell = True)])
-                    print(res)
-                    write_to(output_file, res)
+                    with open('result_file.txt', 'r') as temp_writer:
+                        temp_writer.write(subprocess.run([subprocess.run([command], shell = True)]))
+                    
+                    write_to(output_file, temp_writer)
                 pass
 
             case default:
