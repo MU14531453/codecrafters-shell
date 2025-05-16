@@ -143,19 +143,23 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'cat':
-                #subprocess.run([command], shell = True)
-                for filename in parser(command[3:], as_list = True):
-                    try:
-                        string_builder += open(filename).read()
-                    except:
-                        pass
-                string_builder = string_builder.rstrip()
-                
-
-                if output_file:
-                    write_to(output_file, string_builder)
-                else:
+                if not output_file:
+                    for filename in parser(command[3:], as_list = True):
+                        try:
+                            string_builder += open(filename).read()
+                        except:
+                            pass
+                    string_builder = string_builder.rstrip()
                     print(string_builder)
+                
+                else:
+                    for filename in parser(command[3:command.index('>')], as_list = True):
+                        try:
+                            string_builder += open(filename).read()
+                        except:
+                            pass
+                    string_builder = string_builder.rstrip()
+                    write_to(output_file, string_builder) 
 
                 string_builder = ''
 
