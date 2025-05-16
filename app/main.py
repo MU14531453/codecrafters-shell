@@ -82,7 +82,7 @@ def write_to(file, text, append = False):
 
     print('filepath', filepath)
 
-    os.chdir(filepath)
+    os.chdir(filepath.strip())
 
     open(file_name, 'r'*append + 'w').write(str(text))
 
