@@ -170,7 +170,7 @@ def main():
                     subprocess.run([command], shell = True)
                 else:
                     
-                    temp_writer = subprocess.run([command], shell = True)
+                    temp_writer = subprocess.run([command], shell = True, stdout = False)
                     
                     write_to(output_file, temp_writer)
                 pass
