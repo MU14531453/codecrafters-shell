@@ -166,12 +166,12 @@ def main():
                 string_builder = ''
 
             case 'ls':
-                #print(command_full)
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    #print('tutaj')
+                    print('tutaj')
                     res = subprocess.run([command], shell = True, capture_output = False)
+                    print(res)
                     write_to(output_file, res)
                 pass
 
