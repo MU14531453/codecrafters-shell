@@ -167,8 +167,12 @@ def main():
 
             case 'ls':
                 #print(command_full)
-                subprocess.run([f'ls {command_full[1]}'], shell = True)
-                #subprocess.run([command], shell = True)
+                #subprocess.run([f'ls {command_full[1]}'], shell = True)
+                if not output_file:
+                    subprocess.run([command], shell = True)
+                else:
+                    res = subprocess.run([command], shell = True)
+                    write_to(output_file, res)
                 pass
 
             case default:
