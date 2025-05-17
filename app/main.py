@@ -90,11 +90,13 @@ def main():
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
     string_agg = ''
-    output_file = None
 
     print('$ ', end = '')
 
     while True:
+
+        output_file = None
+        string_agg = ''
 
         command = input().rstrip()
 
