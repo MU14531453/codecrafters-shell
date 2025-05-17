@@ -148,8 +148,8 @@ def main():
 
             case 'cat':
                 if not output_file:
-                    print('string agg przed:',string_agg)
-                    print('command przed:', command)
+                    #print('string agg przed:',string_agg)
+                    #print('command przed:', command)
                     for filename in parser(command[3:], as_list = True):
                         print('filename:', filename)
                         try:
@@ -157,7 +157,7 @@ def main():
                         except:
                             pass
                     string_agg = string_agg.rstrip()
-                    print('string agg po:',string_agg)
+                    #print('string agg po:',string_agg)
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
