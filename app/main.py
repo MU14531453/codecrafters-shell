@@ -161,7 +161,8 @@ def main():
                         except:
                             pass
                     string_builder = string_builder.rstrip()
-                    write_to(output_file, string_builder) 
+                    write_to(output_file, string_builder)
+                    output_file = None
 
                 string_builder = ''
 
@@ -171,8 +172,8 @@ def main():
                 else:
                     #print('command:', command)
                     temp_writer = subprocess.run([' '.join(command_full)], shell = True, stdout = None)
-                    
                     write_to(output_file, temp_writer)
+                    output_file = None
                 pass
 
             case default:
