@@ -89,7 +89,7 @@ def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
-    string_builder = ''
+    string_agg = ''
     output_file = None
 
     print('$ ', end = '')
@@ -148,23 +148,23 @@ def main():
                 if not output_file:
                     for filename in parser(command[3:], as_list = True):
                         try:
-                            string_builder += open(filename).read()
+                            string_agg += open(filename).read()
                         except:
                             pass
-                    string_builder = string_builder.rstrip()
-                    print('string builder:',string_builder)
+                    string_agg = string_agg.rstrip()
+                    print('string builder:',string_agg)
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
                         try:
-                            string_builder += open(filename).read()
+                            string_agg += open(filename).read()
                         except:
                             pass
-                    string_builder = string_builder.rstrip()
-                    write_to(output_file, string_builder)
+                    string_agg = string_agg.rstrip()
+                    write_to(output_file, string_agg)
                     output_file = None
 
-                string_builder = ''
+                string_agg = ''
 
             case 'ls':
                 if not output_file:
