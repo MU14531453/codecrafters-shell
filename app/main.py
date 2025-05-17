@@ -152,8 +152,7 @@ def main():
                         except:
                             pass
                     string_builder = string_builder.rstrip()
-                    print('tutaj')
-                    print(string_builder)
+                    print('string builder:',string_builder)
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
