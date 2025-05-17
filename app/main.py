@@ -148,13 +148,14 @@ def main():
 
             case 'cat':
                 if not output_file:
+                    print('string agg przed:',string_agg)
                     for filename in parser(command[3:], as_list = True):
                         try:
                             string_agg += open(filename).read()
                         except:
                             pass
                     string_agg = string_agg.rstrip()
-                    print('string builder:',string_agg)
+                    print('string agg po:',string_agg)
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
