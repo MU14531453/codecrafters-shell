@@ -149,6 +149,7 @@ def main():
             case 'cat':
                 if not output_file:
                     print('string agg przed:',string_agg)
+                    print('command przed:', command)
                     for filename in parser(command[3:], as_list = True):
                         try:
                             string_agg += open(filename).read()
