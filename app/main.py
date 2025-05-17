@@ -151,6 +151,7 @@ def main():
                     print('string agg przed:',string_agg)
                     print('command przed:', command)
                     for filename in parser(command[3:], as_list = True):
+                        print('filename:', filename)
                         try:
                             string_agg += open(filename).read()
                         except:
