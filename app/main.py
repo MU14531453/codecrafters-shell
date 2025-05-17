@@ -169,7 +169,7 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    print('command:', command)
+                    #print('command:', command)
                     temp_writer = subprocess.run([' '.join(command_full)], shell = True, stdout = None)
                     
                     write_to(output_file, temp_writer)
