@@ -175,7 +175,7 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    temp_writer = subprocess.run([' '.join(command_full)], shell = True, stdout = None)
+                    temp_writer = subprocess.run([' '.join(command_full)], shell = True)
                     write_to(output_file, temp_writer)
                     output_file = None
                 pass
