@@ -191,6 +191,7 @@ def main():
                     else:
                         write_to(output_file, ' '.join(file_list))
                     output_file = None
+                    print(output_file)
 
             case default:
                     
