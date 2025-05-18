@@ -73,6 +73,20 @@ def parser(string, as_list = False):
     else:
         return ' '.join(result)
 
+def check_for_file_to_write(command):
+
+    write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
+
+    if any([x for x in command if x in write_list]):
+        io_splitter = command.replace('1>', '>').split('>')
+        write_command = io_splitter[0]
+        output_file = io_splitter[1]
+    else:
+        return (command, None)
+
+    return (write_command, output_file)
+
+
 def write_to(file, text, append = False):
 
     filepath = file[::-1].split(chr(47), 1)[1][::-1]
@@ -88,7 +102,6 @@ def write_to(file, text, append = False):
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
-    write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
     string_agg = ''
 
     print('$ ', end = '')
@@ -100,13 +113,10 @@ def main():
 
         command = input().rstrip()
 
+        command, output_file = check_for_file_to_write(command)
+
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
-
-        if any([x for x in command if x in write_list]):
-            io_splitter = command.replace('1>', '>').split('>')
-            command = io_splitter[0]
-            output_file = io_splitter[1]
 
         if command[0] in ("'", '"'):
             command_full = parser(command, as_list = True)
