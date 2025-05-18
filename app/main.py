@@ -185,7 +185,7 @@ def main():
                     subprocess.run([command], shell = True)
                 else:
                     call = command.strip().split(' ')
-                    file_list = os.listdir(call[-1])
+                    file_list = sorted(os.listdir(call[-1]), key=os.path.getmtime)
                     if call[1] == '-1':
                         write_to(output_file, file_list[0])
                     else:
