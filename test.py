@@ -1,5 +1,3 @@
-file = '/tmp/quz/foo.md'
+a = -1
 
-t = filepath = file[::-1].split(chr(47), 1)[1][::-1]
-
-print(t)
+print(a.isnumeric())

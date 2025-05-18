@@ -184,11 +184,13 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    file_list = os.listdir(command.strip().split(' ')[-1])
-                    print(file_list)
-                    write_to(output_file, 'aaa')
+                    call = command.strip().split(' ')
+                    file_list = os.listdir(call[-1])
+                    if call[1] == '-1':
+                        write_to(output_file, file_list[0])
+                    else:
+                        write_to(output_file, ' '.join(file_list))
                     output_file = None
-                pass
 
             case default:
                     
