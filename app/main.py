@@ -184,7 +184,8 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    write_to(output_file, subprocess.run([' '.join(command_full)], shell = True))
+                    temp = ' '.join(os.listdir(command.split(' ')[-1]))
+                    write_to(output_file, temp)
                     output_file = None
                 pass
 
