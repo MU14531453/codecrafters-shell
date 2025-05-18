@@ -123,6 +123,8 @@ def main():
                 
                 if output_file:
                     write_to(output_file, command_full[1])
+                    subprocess.run([f'cat {output_file}'], shell = True)
+                    exit(0)
                 else:
                     print(command_full[1])
 
@@ -148,16 +150,13 @@ def main():
 
             case 'cat':
                 if not output_file:
-                    #print('string agg przed:',string_agg)
-                    #print('command przed:', command)
                     for filename in parser(command[3:], as_list = True):
-                        #print('filename:', filename)
                         try:
                             string_agg += open(filename).read()
                         except:
                             pass
                     string_agg = string_agg.rstrip()
-                    #print('string agg po:',string_agg)
+                    print(string_agg)
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
