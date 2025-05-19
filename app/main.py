@@ -186,16 +186,13 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    temp = subprocess.run([command_foo], shell = True)
-                    #write_to(output_file, temp)
-                    #call = command.strip().split(' ')
-                    #file_list = sorted(os.listdir(call[-1]), key=os.path.getmtime)
-                    #file_list = os.listdir(call[-1])
-                    #file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = True)
-                    #if call[1] == '-1':
-                    #    write_to(output_file, file_list[0])
-                    #else:
-                    #    write_to(output_file, ' '.join(file_list))
+                    call = command.strip().split(' ')
+                    file_list = os.listdir(call[-1])
+                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = True)
+                    if call[1] == '-1':
+                        write_to(output_file, file_list[0])
+                    else:
+                        write_to(output_file, ' '.join(file_list))
                     output_file = None
                     #print('file_list:',file_list)
 
