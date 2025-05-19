@@ -166,6 +166,7 @@ def main():
                         try:
                             #string_agg += (open(filename).read() + '\n')
                             print(open(filename).read())
+                            print()
                         except:
                             pass
                     #string_agg = string_agg.rstrip()
