@@ -187,14 +187,10 @@ def main():
                 else:
                     call = command.strip().split(' ')
                     file_list = os.listdir(call[-1])
-                    for f in file_list:
-                        print(f, os.path.getmtime(call[-1] + chr(47) + f) - time.time())
-                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getctime(call[-1] + chr(47) + x), reverse = True)
-                    print(file_list)    
-                    if True:
-                        write_to(output_file, '\n'.join(file_list))
+                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x))
+                    print('file_list:', file_list)
+                    write_to(output_file, '\n'.join(file_list))
                     output_file = None
-                    #print('file_list:',file_list)
 
             case default:
                     
