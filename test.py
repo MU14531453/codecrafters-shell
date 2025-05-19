@@ -1,3 +1,6 @@
-a = -1
 
-print(a.isnumeric())
+
+import os
+
+print('C:' + chr(47))
+print(os.path.getmtime('C:' + chr(47)))

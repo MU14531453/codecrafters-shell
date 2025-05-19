@@ -187,7 +187,7 @@ def main():
                 else:
                     call = command.strip().split(' ')
                     file_list = os.listdir(call[-1])
-                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x))
+                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(92) + x))
                     print('file_list:', file_list)
                     write_to(output_file, '\n'.join(file_list))
                     output_file = None
