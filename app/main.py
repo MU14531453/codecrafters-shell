@@ -168,6 +168,7 @@ def main():
                         except:
                             pass
                     string_agg = string_agg.rstrip()
+                    print('tutaj')
                     print(string_agg)
                 
                 else:
