@@ -191,8 +191,7 @@ def main():
                         print(f, os.path.getmtime(call[-1] + chr(47) + f) - time.time())
                     exit(0)
                     file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = False)
-                    #if call[1] == '-1':
-                    #    write_to(output_file, file_list[0])
+                    print(file_list)    
                     if True:
                         write_to(output_file, '\n'.join(file_list))
                     output_file = None
