@@ -164,12 +164,13 @@ def main():
                 if not output_file:
                     for filename in parser(command[3:], as_list = True):
                         try:
-                            string_agg += (open(filename).read() + '\n')
+                            #string_agg += (open(filename).read() + '\n')
+                            print(open(filename).read())
                         except:
                             pass
-                    string_agg = string_agg.rstrip()
-                    print('tutaj')
-                    print(string_agg)
+                    #string_agg = string_agg.rstrip()
+                    #print('tutaj')
+                    #print(string_agg)
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
@@ -189,7 +190,7 @@ def main():
                 else:
                     call = command.strip().split(' ')
                     file_list = os.listdir(call[-1])
-                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = False)
+                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = True)
                     #if call[1] == '-1':
                     #    write_to(output_file, file_list[0])
                     if True:
