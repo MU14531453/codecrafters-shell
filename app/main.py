@@ -172,6 +172,7 @@ def main():
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
+                        print('c', command)
                         try:
                             string_agg += open(filename).read()
                         except:
