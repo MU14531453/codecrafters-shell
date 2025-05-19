@@ -193,7 +193,7 @@ def main():
                     else:
                         write_to(output_file, ' '.join(file_list))
                     output_file = None
-                    print('file_list:',file_list)
+                    #print('file_list:',file_list)
 
             case default:
                     
