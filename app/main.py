@@ -187,7 +187,7 @@ def main():
                     call = command.strip().split(' ')
                     #file_list = sorted(os.listdir(call[-1]), key=os.path.getmtime)
                     file_list = os.listdir(call[-1])
-                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = False)
+                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = True)
                     if call[1] == '-1':
                         write_to(output_file, file_list[0])
                     else:
