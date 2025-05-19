@@ -4,6 +4,7 @@ import shutil
 import random
 import subprocess
 from pathlib import Path
+from copy import copy
 #git statusimport readline
 
 def parser(string, as_list = False):
@@ -112,6 +113,7 @@ def main():
         string_agg = ''
 
         command = input().rstrip()
+        command_foo = copy(command)
 
         command, output_file = check_for_file_to_write(command)
 
@@ -184,7 +186,7 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    write_to(output_file, subprocess.run([command], shell = True))
+                    write_to(output_file, subprocess.run([command_foo], shell = True))
                     #call = command.strip().split(' ')
                     #file_list = sorted(os.listdir(call[-1]), key=os.path.getmtime)
                     #file_list = os.listdir(call[-1])
