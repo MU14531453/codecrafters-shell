@@ -132,11 +132,8 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                
                 if output_file:
                     write_to(output_file, command_full[1])
-                    subprocess.run([f'cat {output_file}'], shell = True)
-                    exit(0)
                 else:
                     print(command_full[1])
 
@@ -161,20 +158,15 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'cat':
-                #print('cat')
-                #print('command', command)
-                #print('out', output_file)
+
                 if not output_file:
                     for filename in parser(command[3:], as_list = True):
                         try:
                             #string_agg += (open(filename).read() + '\n')
                             print(open(filename).read())
-                            #print()
                         except:
                             pass
                     #string_agg = string_agg.rstrip()
-                    #print('tutaj')
-                    #print(string_agg)
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
