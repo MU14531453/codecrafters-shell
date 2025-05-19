@@ -161,12 +161,11 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'cat':
-                print('tutaj', output_file)
                 if not output_file:
                     for filename in parser(command[3:], as_list = True):
                         try:
                             string_agg += open(filename).read()
-                            print(string_agg)
+                            print(filename, string_agg)
                         except:
                             pass
                     string_agg = string_agg.rstrip()
