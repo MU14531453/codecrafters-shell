@@ -186,7 +186,8 @@ def main():
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
-                    write_to(output_file, subprocess.run([command_foo], shell = True))
+                    temp = subprocess.run([command_foo], shell = True)
+                    #write_to(output_file, temp)
                     #call = command.strip().split(' ')
                     #file_list = sorted(os.listdir(call[-1]), key=os.path.getmtime)
                     #file_list = os.listdir(call[-1])
