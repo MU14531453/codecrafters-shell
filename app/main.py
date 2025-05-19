@@ -164,7 +164,7 @@ def main():
                 if not output_file:
                     for filename in parser(command[3:], as_list = True):
                         try:
-                            string_agg += open(filename).read()
+                            string_agg += (open(filename).read() + '\n')
                         except:
                             pass
                     string_agg = string_agg.rstrip()
@@ -172,7 +172,6 @@ def main():
                 
                 else:
                     for filename in parser(command[3:], as_list = True):
-                        print('c', command)
                         try:
                             string_agg += (open(filename).read() + '\n')
                         except:
