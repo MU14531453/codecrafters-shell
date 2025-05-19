@@ -166,6 +166,7 @@ def main():
                     for filename in parser(command[3:], as_list = True):
                         try:
                             string_agg += open(filename).read()
+                            print(string_agg)
                         except:
                             pass
                     string_agg = string_agg.rstrip()
