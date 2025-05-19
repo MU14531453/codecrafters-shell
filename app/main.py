@@ -189,7 +189,7 @@ def main():
                     file_list = os.listdir(call[-1])
                     for f in file_list:
                         print(f, os.path.getmtime(call[-1] + chr(47) + f) - time.time())
-                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getatime(call[-1] + chr(47) + x), reverse = False)
+                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getctime(call[-1] + chr(47) + x), reverse = False)
                     print(file_list)    
                     if True:
                         write_to(output_file, '\n'.join(file_list))
