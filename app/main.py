@@ -5,6 +5,7 @@ import random
 import subprocess
 from pathlib import Path
 from copy import copy
+import time
 #git statusimport readline
 
 def parser(string, as_list = False):
@@ -187,7 +188,7 @@ def main():
                     call = command.strip().split(' ')
                     file_list = os.listdir(call[-1])
                     for f in file_list:
-                        print(f, os.path.getmtime(call[-1] + chr(47) + f))
+                        print(f, os.path.getmtime(call[-1] + chr(47) + f) - time.time())
                     exit(0)
                     file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x), reverse = False)
                     #if call[1] == '-1':
