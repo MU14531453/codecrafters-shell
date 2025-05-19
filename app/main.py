@@ -161,6 +161,7 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'cat':
+                print('tutaj', output_file)
                 if not output_file:
                     for filename in parser(command[3:], as_list = True):
                         try:
