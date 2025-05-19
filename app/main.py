@@ -163,6 +163,7 @@ def main():
             case 'cat':
                 if not output_file:
                     for filename in parser(command[3:], as_list = True):
+                        print(command)
                         try:
                             string_agg += open(filename).read()
                             #print(filename, string_agg)
