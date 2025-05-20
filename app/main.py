@@ -157,7 +157,7 @@ def main():
                         os.chdir(command_full[1])
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
-
+            _a = """
             case 'cat':
 
                 if not output_file:
@@ -180,18 +180,18 @@ def main():
                     output_file = None
 
                 string_agg = ''
-
+        
             case 'ls':
                 if not output_file:
                     subprocess.run([command], shell = True)
                 else:
                     call = command.strip().split(' ')
                     file_list = os.listdir(call[-1])
-                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(92) + x))
-                    print('file_list:', file_list)
+                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x))
+                    #print('file_list:', file_list)
                     write_to(output_file, '\n'.join(file_list))
                     output_file = None
-
+        """
             case default:
                     
                 if identifier := shutil.which(identifier if identifier else ''):
