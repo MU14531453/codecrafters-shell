@@ -158,8 +158,8 @@ def main():
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
             
-            #case 'fdasfdasdfdafdaadfsfdasadfsadfs':
-                #_a = """
+            case 'fdasfdasdfdafdaadfsfdasadfsadfs':
+                _a = """
             case 'cat':
 
                 if not output_file:
@@ -193,7 +193,7 @@ def main():
                     #print('file_list:', file_list)
                     write_to(output_file, '\n'.join(file_list))
                     output_file = None
-            #"""
+            """
             case default:
                     
                 if identifier := shutil.which(identifier if identifier else ''):
