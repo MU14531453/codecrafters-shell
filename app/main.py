@@ -105,7 +105,7 @@ def write_to(file, text, append = False):
 
     os.chdir(filepath.strip())
 
-    open(file_name, 'r'*append + 'w').write(str(text))
+    open(file_name, 'a' if append else 'w').write(str(text))
 
     return None
 
