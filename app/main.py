@@ -117,7 +117,7 @@ class Autocomplete:
         self.commands = commands
 
     def complete(self, text, symbol_iter):
-        results =  [x for x in self.commands if x.startswith(text)] + [None]
+        results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
         return results[symbol_iter] + ' '
     
@@ -200,7 +200,10 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_foo, shell = True)
                 else:
-                    print(f'{command}: command not found')
+                    if err_flag:
+                        print(completer.complete(identifier))
+                    else:
+                        print(f'{command}: command not found')
 
 
         print('$ ', end = '')
