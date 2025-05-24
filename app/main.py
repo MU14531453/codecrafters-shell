@@ -152,7 +152,7 @@ def main():
         if command_foo[0] == 's':
             filepath = output_file[::-1].split(chr(47), 1)[1][::-1]
             file_name = output_file[::-1].split(chr(47), 1)[0][::-1]
-            os.chdir(filepath)
+            #os.chdir(filepath)
             subprocess.run(f'touch {file_name}', shell = True)
             open(output_file, 'w').write('l' + command_foo)
             continue
