@@ -200,6 +200,7 @@ def main():
             
             
             case default:
+                print(identifier)
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_foo, shell = True)
                 else:
