@@ -75,6 +75,7 @@ def parser(string, as_list = False):
     else:
         return ' '.join(result)
 
+
 def check_for_file_to_write(command):
 
     write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
@@ -111,6 +112,18 @@ def write_to(file, text, append = False):
     return None
 
 
+def autocomplete(identifier):
+
+    match identifier:
+
+        case 'ech':
+            return 'echo'
+        case 'exi':
+            return 'exit'
+        case default:
+            return None
+
+
 def main():
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
@@ -120,11 +133,13 @@ def main():
 
     while True:
 
+        readline.set_completer(autocomplete)
+
         output_file = None
         string_agg = ''
 
         command = input()
-        print(readline.get_line_buffer())
+        
         command_foo = copy(command)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
