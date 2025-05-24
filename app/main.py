@@ -112,6 +112,7 @@ def main():
 
         output_file = None
         string_agg = ''
+        FLAG_SUBPROCESS_STDOUT = False
 
         command = input().rstrip()
         command_foo = copy(command)
