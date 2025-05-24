@@ -147,7 +147,7 @@ def main():
                         try:
                             open(output_file, 'r')
                         except FileNotFoundError:
-                            write_to(output_file, 'File cannot be found\n', append = append)
+                            write_to(output_file, '', append = append)
                             print(command_full[1])
                         finally:
                             write_to(output_file, '', append = append)
