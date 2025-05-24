@@ -102,7 +102,9 @@ def write_to(file, text, append = False):
 
 def std_newline(command):
 
-    sys.stdout.write(f'{subprocess.run(command, shell = True)}\n')
+    t = subprocess.run(command, shell = True, capture_output = True)
+
+    sys.stdout.write(f'{t}\n')
 
     return None
 
