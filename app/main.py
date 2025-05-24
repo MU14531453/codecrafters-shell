@@ -168,7 +168,7 @@ def main():
                         res = subprocess.run(command_foo, shell = True)
                     else:
                         res = subprocess.run(' '.join(command_full), shell = True)
-                        print('\n$ ', end = '')
+                        sys.stdout.write('\n$ ')
                         FLAG_SUBPROCESS_STDOUT = True
                 else:
                     print(f'{command}: command not found')
