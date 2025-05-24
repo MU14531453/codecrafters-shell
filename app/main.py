@@ -141,7 +141,7 @@ def main():
         string_agg = ''
 
         command = input()
-        readline.get_completer()
+        readline.parse_and_bind(command)
 
         command_foo = copy(command)
 
