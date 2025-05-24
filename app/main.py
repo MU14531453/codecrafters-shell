@@ -143,12 +143,13 @@ def main():
 
             case 'echo':
                 if output_file:
-                    try:
-                        open(output_file, 'r')
-                    except FileNotFoundError:
-                        echo_err = ''
                     if err_flag:
-                        write_to(output_file, command_full[1] + '\n', append = append)#write_to(output_file, command_full[1] + '\n', append = append)#write_to(output_file, '', append = append)
+                        try:
+                            open(output_file, 'r')
+                        except FileNotFoundError:
+                            write_to(output_file, 'File cannot be found\n', append = append)
+                        finally:
+                            write_to(output_file, '\n', append = append)
                     else:
                         write_to(output_file, command_full[1] + '\n', append = append)
                 else:
