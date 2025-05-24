@@ -143,6 +143,9 @@ def main():
 
         command = input()
         readline.parse_and_bind(command)
+        if command[0] == 's':
+            print('asssa')
+            print(command)
 
         command_foo = copy(command)
 
