@@ -144,7 +144,7 @@ def main():
             case 'echo':
                 if output_file:
                     if err_flag:
-                        write_to(output_file, '', append = append)
+                        pass#write_to(output_file, '', append = append)
                     else:
                         write_to(output_file, command_full[1] + '\n', append = append)
                 else:
