@@ -197,9 +197,12 @@ def main():
             case default:
                     
                 if identifier := shutil.which(identifier if identifier else ''):
-                    res = subprocess.run(' '.join(command_full), shell = True, stdout = subprocess.DEVNULL)
+                    
                     if output_file is not None:
+                        res = subprocess.run(' '.join(command_full), shell = True, stdout = subprocess.DEVNULL)
                         write_to(output_file, res)
+                    else:
+                        res = subprocess.run(' '.join(command_full), shell = True)
 
                 else:
                     print(f'{command}: command not found')
