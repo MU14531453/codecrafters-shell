@@ -181,7 +181,7 @@ def main():
                     print(f'{command}: command not found')
                 
         #if not FLAG_SUBPROCESS_STDOUT:
-        print('$ ', end = '')
+        print('\n'*FLAG_SUBPROCESS_STDOUT + '$ ', end = '')
 
 
 if __name__ == '__main__':
