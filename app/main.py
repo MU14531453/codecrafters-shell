@@ -173,7 +173,7 @@ def main():
                 else:
                     print(f'{command}: command not found')
                 
-        if FLAG_SUBPROCESS_STDOUT:
+        if not FLAG_SUBPROCESS_STDOUT:
             print('$ ', end = '')
 
 
