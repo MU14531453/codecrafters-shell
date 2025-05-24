@@ -201,7 +201,7 @@ def main():
                     if output_file is not None:
                         #subprocess.run(f'touch {output_file}', shell = True, stdout = subprocess.DEVNULL)
                         #res = subprocess.run(' '.join(command_full + [output_file]), shell = True, stdout = open(output_file))#, stdout = open(output_file, 'w+'))
-                        res = subprocess.run(command_foo, shell = True)
+                        res = subprocess.run(command_foo, shell = True, universal_newlines = True)
                         print('\n')
                         #write_to(output_file, res)
                     else:
