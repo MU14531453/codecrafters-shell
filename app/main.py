@@ -112,16 +112,17 @@ def write_to(file, text, append = False):
     return None
 
 
-def autocomplete(identifier):
+def autocomplete(identifier, state):
 
-    match identifier:
+    if state == 2:
+        match identifier:
 
-        case 'ech':
-            return 'echo'
-        case 'exi':
-            return 'exit'
-        case default:
-            return None
+            case 'ech':
+                return 'echo'
+            case 'exi':
+                return 'exit'
+            case default:
+                return None
 
 
 def main():
@@ -134,6 +135,7 @@ def main():
     while True:
 
         readline.set_completer(autocomplete)
+        readline.set_completer_delims('\t')
 
         output_file = None
         string_agg = ''
