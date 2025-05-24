@@ -114,7 +114,7 @@ def main():
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_agg = ''
 
-    #print('$ ', end = '')
+    print('$ ', end = '')
 
     while True:
 
