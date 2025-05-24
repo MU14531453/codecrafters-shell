@@ -204,7 +204,8 @@ def main():
                     subprocess.run(command_foo, shell = True)
                 else:
                     if err_flag:
-                        write_to(file = output_file, text = 'l' + command_foo)
+                        wtf = ''.join('l', command_foo)
+                        write_to(file = output_file, text = wtf)
                     else:
                         print(f'{command}: command not found')
 
