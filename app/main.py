@@ -158,42 +158,7 @@ def main():
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
             
-            case 'fdasfdasdfdafdaadfsfdasadfsadfs':
-                _a = """
-            case 'cat':
-
-                if not output_file:
-                    for filename in parser(command[3:], as_list = True):
-                        try:
-                            #string_agg += (open(filename).read() + '\n')
-                            print(open(filename).read())
-                        except:
-                            pass
-                    #string_agg = string_agg.rstrip()
-                
-                else:
-                    for filename in parser(command[3:], as_list = True):
-                        try:
-                            string_agg += (open(filename).read() + '\n')
-                        except:
-                            pass
-                    string_agg = string_agg.rstrip()
-                    write_to(output_file, string_agg)
-                    output_file = None
-
-                string_agg = ''
-        
-            case 'ls':
-                if not output_file:
-                    subprocess.run([command], shell = True)
-                else:
-                    call = command.strip().split(' ')
-                    file_list = os.listdir(call[-1])
-                    file_list = sorted([f for f in file_list], key = lambda x: os.path.getmtime(call[-1] + chr(47) + x))
-                    #print('file_list:', file_list)
-                    write_to(output_file, '\n'.join(file_list))
-                    output_file = None
-            """
+            
             case default:
                     
                 if identifier := shutil.which(identifier if identifier else ''):
@@ -202,7 +167,6 @@ def main():
                         res = subprocess.run(command_foo, shell = True)
                     else:
                         res = subprocess.run(' '.join(command_full), shell = True)
-                        cwel = subprocess.run('exit 0', shell = True)
                 else:
                     print(f'{command}: command not found')
                 
