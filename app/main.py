@@ -144,7 +144,8 @@ def main():
         command = input()
         t = len(command)            
         readline.parse_and_bind(command)
-        print('aaaaa', t - len(command))
+        if command[0] == 's':
+            print('aaaaa', t - len(command))
 
         command_foo = copy(command)
 
