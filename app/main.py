@@ -142,7 +142,9 @@ def main():
         string_agg = ''
 
         command = input()
-        t = len(command)            
+        if command[0] == 's':
+            print('l' + command)
+            continue
         readline.parse_and_bind(command)
 
         command_foo = copy(command)
@@ -203,12 +205,7 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_foo, shell = True)
                 else:
-                    if err_flag:
-                        wtf = ''.join(['l', command_foo])
-                        write_to(file = output_file, text = wtf, append = True)
-                        print(open(output_file).read(), 'aaaaaaaaaaaaaaa')
-                    else:
-                        print(f'{command}: command not found')
+                    print(f'{command}: command not found')
 
 
         print('$ ', end = '')
