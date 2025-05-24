@@ -144,8 +144,6 @@ def main():
         command = input()
         t = len(command)            
         readline.parse_and_bind(command)
-        if command[0] == 's':
-            print('aaaaa', t - len(command))
 
         command_foo = copy(command)
 
@@ -206,7 +204,7 @@ def main():
                     subprocess.run(command_foo, shell = True)
                 else:
                     if err_flag:
-                        write_to(file = output_file, text = 'l' + command_foo)
+                        write_to(file = output_file, text = 'l')# + command_foo)
                     else:
                         print(f'{command}: command not found')
 
