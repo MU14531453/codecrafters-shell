@@ -199,7 +199,7 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     
                     if output_file is not None:
-                        res = subprocess.run(' '.join(command_full), shell = True, stdout = open(output_file))
+                        res = subprocess.run(' '.join(command_full), shell = True, stdout = open(output_file, 'w+'))
                         #write_to(output_file, res)
                     else:
                         res = subprocess.run(' '.join(command_full), shell = True)
