@@ -205,7 +205,7 @@ def main():
                 else:
                     if err_flag:
                         wtf = ''.join(['l', command_foo])
-                        write_to(file = output_file, text = wtf)
+                        write_to(file = output_file, text = wtf, append = True)
                     else:
                         print(f'{command}: command not found')
 
