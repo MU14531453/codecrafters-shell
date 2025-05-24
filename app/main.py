@@ -104,7 +104,7 @@ def std_newline(command):
 
     t = subprocess.run(command, shell = True, capture_output = True)
 
-    print(str(t.stdout.decode(encoding = 'utf-8')), end = '')
+    print(str(t.stdout.decode(encoding = 'utf-8')))#, end = '')
 
     return None
 
@@ -176,12 +176,12 @@ def main():
                         res = subprocess.run(command_foo, shell = True)
                     else:
                         std_newline(' '.join(command_full))
-                        FLAG_SUBPROCESS_STDOUT = True
+                        #FLAG_SUBPROCESS_STDOUT = True
                 else:
                     print(f'{command}: command not found')
                 
         #if not FLAG_SUBPROCESS_STDOUT:
-        print('\n'*FLAG_SUBPROCESS_STDOUT + '$ ', end = '')
+        print('$ ', end = '')
 
 
 if __name__ == '__main__':
