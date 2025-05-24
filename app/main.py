@@ -203,9 +203,10 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_foo, shell = True)
                 else:
-                    print(identifier, 'dsadsaasedasddas')
+                    print(command_foo, 'dsadsaasedasddas')
                     if err_flag:
                         wtf = ''.join(['l', command_foo])
+                        print(wtf)
                         write_to(file = output_file, text = wtf)
                     else:
                         print(f'{command}: command not found')
