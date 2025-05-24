@@ -141,9 +141,7 @@ def main():
         string_agg = ''
 
         command = input()
-        
-        if command[-1] == chr(9):
-            readline.get_completer()
+        readline.get_completer()
 
         command_foo = copy(command)
 
