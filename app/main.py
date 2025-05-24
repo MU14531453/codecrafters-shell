@@ -79,14 +79,23 @@ def check_for_file_to_write(command):
 
     write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
 
+    append = bool(command.count('>') - 1)
+
+    for x, symbol in enumerate(command):
+        if symbol == '>' and x:
+            if command[x-1] == '2':
+                err_flag = True
+            else:
+                err_flag = False
+
     if any([x for x in command if x in write_list]):
-        io_splitter = command.replace('1>', '>').split('>')
+        io_splitter = command.replace('1>', '>').replace('2>', '>').replace('>>', '>').split('>')
         write_command = io_splitter[0]
         output_file = io_splitter[1]
     else:
         return (command, None)
 
-    return (write_command, output_file)
+    return (write_command, output_file, append, err_flag)
 
 
 def write_to(file, text, append = False):
@@ -116,7 +125,7 @@ def main():
         command = input().rstrip()
         command_foo = copy(command)
 
-        command, output_file = check_for_file_to_write(command)
+        command, output_file, append, err_flag = check_for_file_to_write(command)
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
@@ -134,7 +143,10 @@ def main():
 
             case 'echo':
                 if output_file:
-                    write_to(output_file, command_full[1] + '\n')
+                    if err_flag:
+                        write_to(output_file, '\n', append = append)
+                    else:
+                        write_to(output_file, command_full[1] + '\n', append = append)
                 else:
                     print(command_full[1])
 
