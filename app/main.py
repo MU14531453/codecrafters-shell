@@ -114,7 +114,7 @@ def main():
         string_agg = ''
         FLAG_SUBPROCESS_STDOUT = False
 
-        command = input().rstrip()
+        command = input('$ ').rstrip()
         command_foo = copy(command)
 
         command, output_file = check_for_file_to_write(command)
@@ -168,13 +168,14 @@ def main():
                         res = subprocess.run(command_foo, shell = True)
                     else:
                         res = subprocess.run(' '.join(command_full), shell = True)
-                        sys.stdout.write('\n$ ')
+                        #sys.stdout.write('\n$ ')
                         FLAG_SUBPROCESS_STDOUT = True
                 else:
                     print(f'{command}: command not found')
                 
         if not FLAG_SUBPROCESS_STDOUT:
-            print('$ ', end = '')
+            pass
+            #print('$ ', end = '')
 
 
 if __name__ == '__main__':
