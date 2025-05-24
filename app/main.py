@@ -104,7 +104,7 @@ def std_newline(command):
 
     t = subprocess.run(command, shell = True, capture_output = True)
 
-    sys.stdout.write(f'{t.stdout}\n')
+    sys.stdout.write(f'{str(t.stdout)}\n')
 
     return None
 
