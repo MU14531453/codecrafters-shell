@@ -202,11 +202,10 @@ def main():
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_foo, shell = True)
-                else:
                     if err_flag:
-                        write_to(file = output_file, text = 'l')# + command_foo)
-                    else:
-                        print(f'{command}: command not found')
+                        write_to(file = output_file, text = 'l' + command_foo)
+                else:
+                    print(f'{command}: command not found')
 
 
         print('$ ', end = '')
