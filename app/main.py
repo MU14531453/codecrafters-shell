@@ -204,9 +204,9 @@ def main():
                     subprocess.run(command_foo, shell = True)
                 else:
                     if err_flag:
-                        if err_flag:
                             print('tutaj', command_foo)#write_to(file = output_file, text = 'l' + command_foo)
-                    print(f'{command}: command not found')
+                    else:
+                        print(f'{command}: command not found')
 
 
         print('$ ', end = '')
