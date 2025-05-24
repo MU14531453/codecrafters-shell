@@ -200,12 +200,10 @@ def main():
             
             
             case default:
-                if identifier[0] == 's':
-                    print(identifier)
-                    print(shutil.which(identifier))
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_foo, shell = True)
                 else:
+                    print(identifier, 'dsadsaasedasddas')
                     if err_flag:
                         wtf = ''.join(['l', command_foo])
                         write_to(file = output_file, text = wtf)
