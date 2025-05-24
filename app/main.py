@@ -137,6 +137,8 @@ def main():
         readline.parse_and_bind('tab: complete')
 
         output_file = None
+        append = None
+        err_flag = None
         string_agg = ''
 
         command = input()
@@ -201,7 +203,7 @@ def main():
                     subprocess.run(command_foo, shell = True)
                 else:
                     if err_flag:
-                        print('l' + command_foo)
+                        write_to(file = output_file, text = 'l' + command_foo)
                     else:
                         print(f'{command}: command not found')
 
