@@ -143,7 +143,7 @@ def main():
 
             case 'echo':
                 if output_file:
-                    write_to(output_file, command_full[1])
+                    write_to(output_file, command_full[1] + '\n')
                 else:
                     print(command_full[1])
 
