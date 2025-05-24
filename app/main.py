@@ -100,14 +100,6 @@ def write_to(file, text, append = False):
 
     return None
 
-def std_newline(command):
-
-    t = subprocess.run(command, shell = True, capture_output = True)
-
-    print(str(t.stdout.decode(encoding = 'utf-8')), end = '')
-
-    return None
-
 
 def main():
 
@@ -168,13 +160,8 @@ def main():
             
             
             case default:
-                #print('id::::::::::', command_foo)
                 if identifier := shutil.which(identifier if identifier else ''):
                     subprocess.run(command_foo, shell = True)
-                    #if output_file is not None:
-                    #    res = subprocess.run(command_foo, shell = True)
-                    #else:
-                    #    std_newline(' '.join(command_foo))
                 else:
                     print(f'{command}: command not found')
 
