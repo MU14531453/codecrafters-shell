@@ -206,6 +206,7 @@ def main():
                     if err_flag:
                         wtf = ''.join(['l', command_foo])
                         write_to(file = output_file, text = wtf, append = True)
+                        print(open(output_file).read(), 'aaaaaaaaaaaaaaa')
                     else:
                         print(f'{command}: command not found')
 
