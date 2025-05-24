@@ -201,7 +201,7 @@ def main():
                     subprocess.run(command_foo, shell = True)
                 else:
                     if err_flag:
-                        print(completer.complete(identifier, 0))
+                        print('l' + command_foo)
                     else:
                         print(f'{command}: command not found')
 
