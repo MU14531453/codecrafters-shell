@@ -112,17 +112,15 @@ def write_to(file, text, append = False):
     return None
 
 
-def autocomplete(identifier, state):
+class Autocomplete:
+    def __init__(self, commands):
+        self.commands = commands
 
-    if state == 2:
-        match identifier:
-
-            case 'ech':
-                return 'echo'
-            case 'exi':
-                return 'exit'
-            case default:
-                return None
+    def complete(self, text, symbol_iter):
+        results =  [x for x in self.commands if x.startswith(text)] + [None]
+        self.results = results
+        return results[symbol_iter]
+    
 
 
 def main():
@@ -134,8 +132,9 @@ def main():
 
     while True:
 
-        readline.set_completer(autocomplete)
-        readline.set_completer_delims('\t')
+        completer = Autocomplete(command_list)
+        readline.set_completer(completer.complete)
+        readline.parse_and_bind('tab: complete')
 
         output_file = None
         string_agg = ''
