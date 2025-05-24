@@ -114,7 +114,7 @@ def main():
         string_agg = ''
         FLAG_SUBPROCESS_STDOUT = False
 
-        command = input('$ ').rstrip()
+        command = input('\n$ ').rstrip()
         command_foo = copy(command)
 
         command, output_file = check_for_file_to_write(command)
