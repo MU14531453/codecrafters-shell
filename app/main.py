@@ -199,12 +199,10 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     
                     if output_file is not None:
-                        #subprocess.run(f'touch {output_file}', shell = True, stdout = subprocess.DEVNULL)
-                        #res = subprocess.run(' '.join(command_full + [output_file]), shell = True, stdout = open(output_file))#, stdout = open(output_file, 'w+'))
-                        res = subprocess.run(command_foo, shell = True, universal_newlines = True)
-                        #write_to(output_file, res)
+                        res = subprocess.run(command_foo, shell = True)
                     else:
                         res = subprocess.run(' '.join(command_full), shell = True)
+                        print()
 
                 else:
                     print(f'{command}: command not found')
