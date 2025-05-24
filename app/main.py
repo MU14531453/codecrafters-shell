@@ -93,7 +93,7 @@ def check_for_file_to_write(command):
         write_command = io_splitter[0]
         output_file = io_splitter[1]
     else:
-        return (command, None)
+        return (command, None, False, False)
 
     return (write_command, output_file, append, err_flag)
 
