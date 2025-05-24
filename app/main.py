@@ -176,15 +176,12 @@ def main():
                         res = subprocess.run(command_foo, shell = True)
                     else:
                         std_newline(' '.join(command_full))
-                        #res = subprocess.run(' '.join(command_full), shell = True)
-                        #print()
                         FLAG_SUBPROCESS_STDOUT = True
                 else:
                     print(f'{command}: command not found')
                 
         if not FLAG_SUBPROCESS_STDOUT:
-            pass
-            #print('$ ', end = '')
+            print('$ ', end = '')
 
 
 if __name__ == '__main__':
