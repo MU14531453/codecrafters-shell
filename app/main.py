@@ -100,6 +100,12 @@ def write_to(file, text, append = False):
 
     return None
 
+def std_newline(command):
+
+    sys.stdout.write(f'{subprocess.run(command, shell = True)}\n')
+
+    return None
+
 
 def main():
 
@@ -114,7 +120,7 @@ def main():
         string_agg = ''
         FLAG_SUBPROCESS_STDOUT = False
 
-        command = input('\n$ ').rstrip()
+        command = input('$ ').rstrip()
         command_foo = copy(command)
 
         command, output_file = check_for_file_to_write(command)
@@ -167,8 +173,9 @@ def main():
                     if output_file is not None:
                         res = subprocess.run(command_foo, shell = True)
                     else:
-                        res = subprocess.run(' '.join(command_full), shell = True)
-                        print()
+                        std_newline(' '.join(command_full))
+                        #res = subprocess.run(' '.join(command_full), shell = True)
+                        #print()
                         FLAG_SUBPROCESS_STDOUT = True
                 else:
                     print(f'{command}: command not found')
