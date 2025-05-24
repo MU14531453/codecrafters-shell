@@ -201,7 +201,8 @@ def main():
                     if output_file is not None:
                         res = subprocess.run(command_foo, shell = True)
                     else:
-                        res = subprocess.run(' '.join(command_full + ['exit 0']), shell = True)
+                        res = subprocess.run(' '.join(command_full), shell = True)
+                        cwel = subprocess.run('exit 0', shell = True)
                 else:
                     print(f'{command}: command not found')
                 
