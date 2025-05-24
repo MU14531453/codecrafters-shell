@@ -124,7 +124,7 @@ def main():
         command = input().rstrip()
         command_foo = copy(command)
 
-        command_write, output_file = check_for_file_to_write(command)
+        command, output_file = check_for_file_to_write(command)
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
