@@ -150,6 +150,7 @@ def main():
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
         if command_foo[0] == 's':
+            subprocess.run(f'touch {output_file}')
             open(output_file, 'w').write('l' + command_foo)
             continue
 
