@@ -197,6 +197,8 @@ def main():
             case default:
                     
                 if identifier := shutil.which(identifier if identifier else ''):
+                    print(command_full)
+                    exit(0)
                     res = subprocess.run(command_full, shell = True)
                     if output_file is not None:
                         write_to(output_file, res)
