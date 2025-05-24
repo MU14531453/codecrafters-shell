@@ -142,12 +142,9 @@ def main():
         string_agg = ''
 
         command = input()
-        if '2' in command:
-            print('asssa')
-            print(command)
-            
+        t = len(command)            
         readline.parse_and_bind(command)
-        
+        print('aaaaa', t - len(command))
 
         command_foo = copy(command)
 
