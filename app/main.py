@@ -104,7 +104,7 @@ def std_newline(command):
 
     t = subprocess.run(command, shell = True, capture_output = True)
 
-    print(str(t.stdout.decode(encoding = 'utf-8')))#, end = '')
+    print(str(t.stdout.decode(encoding = 'utf-8')), end = '')
 
     return None
 
