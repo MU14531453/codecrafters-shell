@@ -169,18 +169,15 @@ def main():
             
             
             case default:
-                    
                 if identifier := shutil.which(identifier if identifier else ''):
-                    
                     if output_file is not None:
                         res = subprocess.run(command_foo, shell = True)
                     else:
                         std_newline(' '.join(command_full))
-                        #FLAG_SUBPROCESS_STDOUT = True
                 else:
                     print(f'{command}: command not found')
-                
-        #if not FLAG_SUBPROCESS_STDOUT:
+
+            
         print('$ ', end = '')
 
 
