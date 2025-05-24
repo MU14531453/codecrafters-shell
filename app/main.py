@@ -142,14 +142,16 @@ def main():
         string_agg = ''
 
         command = input()
-        if command[0] == 's':
-            print('l' + command)
-            continue
+
         readline.parse_and_bind(command)
 
         command_foo = copy(command)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
+
+        if command_foo[0] == 's':
+            open(output_file, 'w').write('l' + command_foo)
+            continue
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
