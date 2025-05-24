@@ -117,9 +117,9 @@ class Autocomplete:
         self.commands = commands
 
     def complete(self, text, symbol_iter):
-        results =  [x for x in self.commands if x.startswith(text)] + [' ']
+        results =  [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
-        return results[symbol_iter]
+        return results[symbol_iter] + ' '
     
 
 
