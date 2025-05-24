@@ -120,12 +120,11 @@ def main():
 
         output_file = None
         string_agg = ''
-        FLAG_SUBPROCESS_STDOUT = False
 
-        command = input()#.rstrip()
+        command = input().rstrip()
         command_foo = copy(command)
 
-        command, output_file = check_for_file_to_write(command)
+        command_write, output_file = check_for_file_to_write(command)
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
@@ -174,7 +173,7 @@ def main():
                     if output_file is not None:
                         res = subprocess.run(command_foo, shell = True)
                     else:
-                        std_newline(' '.join(command_full))
+                        std_newline(' '.join(command_foo))
                 else:
                     print(f'{command}: command not found')
 
