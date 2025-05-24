@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 from copy import copy
 import time
-#git statusimport readline
+import readline
 
 def parser(string, as_list = False):
 
@@ -89,7 +89,6 @@ def check_for_file_to_write(command):
             else:
                 err_flag = False
     
-
     if any([x for x in command if x in write_list]):
         io_splitter = command.replace('1>', '>').replace('2>', '>').replace('>>', '>').split('>')
         write_command = io_splitter[0]
@@ -124,7 +123,8 @@ def main():
         output_file = None
         string_agg = ''
 
-        command = input().rstrip()
+        command = input()
+        print(readline.get_line_buffer())
         command_foo = copy(command)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
