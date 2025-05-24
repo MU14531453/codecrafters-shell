@@ -140,6 +140,9 @@ def main():
 
         command = input()
         
+        if command[-1] == chr(9):
+            readline.get_completer()
+
         command_foo = copy(command)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
