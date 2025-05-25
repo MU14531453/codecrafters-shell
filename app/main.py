@@ -136,6 +136,8 @@ def main():
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
     print('bb', sys.path)
+    os.environ.get('PYTHONPATH', '').split(os.pathsep)    
+    
     while True:
 
         output_file = None
