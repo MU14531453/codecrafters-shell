@@ -132,7 +132,7 @@ def main():
 
     print('$ ', end = '')
 
-    completer = Autocomplete(command_list + PATH)
+    completer = Autocomplete(command_list)
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
