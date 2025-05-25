@@ -135,8 +135,6 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-    readline.parse_and_bind()
-
 
     while True:
 
@@ -146,6 +144,8 @@ def main():
         string_agg = ''
 
         command = input()
+        readline.parse_and_bind()
+
         #if command[0:2] == 'ls':
         #    FLAG_S = True
 
