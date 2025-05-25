@@ -149,8 +149,7 @@ def main():
         #    completer.commands += subprocess.run(f'ls -1 {p}', shell = True, capture_output = True).stdout
 
         dynamic_path = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[1]
-        print(dynamic_path)
-        completer.commands += subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
+        completer.commands += ''.join(subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode())
         print(completer.commands)
 
         command = input()
