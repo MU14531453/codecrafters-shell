@@ -146,6 +146,8 @@ def main():
 
         dynamic_exec_list = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')
         print(dynamic_exec_list)
+        for p in dynamic_exec_list:
+            subprocess.run(f'ls {p}', shell = True)#, capture_output = True).stdout
         exit(0)
 
 
