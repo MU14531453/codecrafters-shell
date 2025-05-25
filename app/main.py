@@ -144,7 +144,11 @@ def main():
         err_flag = None
         string_agg = ''
 
-        completer.commands = completer.commands + os.listdir(path=sys.path)
+        dynamic_exec_list = []
+        for p in sys.path:
+            dynamic_exec_list += os.listdir(path = p)
+
+        completer.commands = completer.commands + dynamic_exec_list
         print('aaaaaaaa', completer.commands)
         command = input()
 
