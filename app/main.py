@@ -144,7 +144,7 @@ def main():
         err_flag = None
         string_agg = ''
 
-        completer.commands = completer.commands + subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split('\n')
+        completer.commands = completer.commands + os.listdir(path=PATH)
         print('aaaaaaaa', completer.commands)
         command = input()
 
