@@ -149,8 +149,8 @@ def main():
         if command[0:2] == 'ls':
             FLAG_S = True
 
-            if not FLAG_S:
-        readline.parse_and_bind(command)
+        if not FLAG_S:
+            readline.parse_and_bind(command)
 
         command_foo = copy(command)
 
