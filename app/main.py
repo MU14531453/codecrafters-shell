@@ -145,8 +145,10 @@ def main():
         string_agg = ''
 
         dynamic_exec_list = []
-        print(sys.path)
+        #print(sys.path)
+        print('aa')
         subprocess.run('echo $PATH', shell = True)
+        print('bb')
         for p in sys.path:
             pass
             #dynamic_exec_list += os.listdir(path = p)
