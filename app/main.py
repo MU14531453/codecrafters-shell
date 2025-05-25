@@ -169,9 +169,7 @@ def main():
         match identifier:
 
             case 's':
-                print(open(output_file))
-                print('tutaj')
-                sys.stderr.write('l' + command_foo)
+                subprocess.run(''.join(['l', command_foo], shell = True))
 
             case 'exit':
                 exit(int(command_full[1]))
