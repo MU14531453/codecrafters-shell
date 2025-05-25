@@ -144,15 +144,15 @@ def main():
         err_flag = None
         string_agg = ''
 
-        dynamic_exec_list = []
-        #print(sys.path)
-        print('aa')
-        subprocess.run('echo $PATH', shell = True)
-        print('bb')
+        dynamic_exec_list = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')
+        print(dynamic_exec_list)
+        exit(0)
+
+
         for p in sys.path:
             pass
             #dynamic_exec_list += os.listdir(path = p)
-        dynamic_exec_list = ['cwel']
+
         completer.commands = completer.commands + dynamic_exec_list
         print('aaaaaaaa', completer.commands)
         command = input()
