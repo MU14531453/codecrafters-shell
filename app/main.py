@@ -144,7 +144,7 @@ def main():
         err_flag = None
         string_agg = ''
 
-        completer.commands = completer.commands + sys.path
+        completer.commands = completer.commands + subprocess.run('echo PATH', shell = True).split('\n')
         command = input()
 
         command_foo = copy(command)
