@@ -132,6 +132,9 @@ def main():
 
     while True:
 
+        with open('foo.txt', 'a') as xd:
+            xd.write(command_foo)
+
         completer = Autocomplete(command_list)
         readline.set_completer(completer.complete)
         readline.parse_and_bind('tab: complete')
