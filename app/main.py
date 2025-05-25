@@ -131,11 +131,10 @@ def main():
 
     print('$ ', end = '')
 
-    completer = Autocomplete(command_list + sys.path)
+    completer = Autocomplete(command_list + PATH)
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-    print('bb', PATH)
     
     while True:
 
@@ -144,7 +143,9 @@ def main():
         err_flag = None
         string_agg = ''
 
-        command = input()        
+        completer.commands = completer.commands + PATH
+        command = input()
+
 
         command_foo = copy(command)
         history_list.append(command_foo)
