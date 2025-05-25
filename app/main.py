@@ -177,7 +177,7 @@ def main():
                             open(output_file, 'r')
                         except FileNotFoundError:
                             write_to(output_file, '', append = append)
-                            #print(command_full[1])
+                            print(command_full[1])
                         finally:
                             write_to(output_file, '', append = append)
                     else:
@@ -205,13 +205,14 @@ def main():
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
             
-            
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_foo, shell = True)
+                    if err_flag:
+                        subprocess.run(command_foo, shell = True, stdout = subprocess.DEVNULL)
+                    else:
+                        subprocess.run(command_foo, shell = True)
                 else:
                     print(f'{command}: command not found')
-
 
         print('$ ', end = '')
 
