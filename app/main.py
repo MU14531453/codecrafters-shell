@@ -135,7 +135,7 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-
+    print('bb', sys.path)
     while True:
 
         output_file = None
@@ -146,7 +146,7 @@ def main():
         command = input()
 
         print('aa', command)
-        print('bb', sys.path)
+        
 
         command_foo = copy(command)
         history_list.append(command_foo)
