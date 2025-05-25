@@ -144,7 +144,7 @@ def main():
         err_flag = None
         string_agg = ''
 
-        completer.commands = completer.commands + os.listdir(path=PATH)
+        completer.commands = completer.commands + os.listdir(path=sys.path)
         print('aaaaaaaa', completer.commands)
         command = input()
 
