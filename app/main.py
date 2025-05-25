@@ -139,6 +139,8 @@ def main():
     
     while True:
 
+        print('tutaj?')
+
         output_file = None
         append = None
         err_flag = None
@@ -208,7 +210,6 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    print('cccccc', command_foo)
                     subprocess.run(command_foo, shell = True)
                 else:
                     print(f'{command}: command not found')
