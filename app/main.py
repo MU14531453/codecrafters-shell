@@ -145,8 +145,10 @@ def main():
         string_agg = ''
 
         dynamic_exec_list = []
+        print(sys.path)
         for p in sys.path:
-            dynamic_exec_list += os.listdir(path = p)
+            pass
+            #dynamic_exec_list += os.listdir(path = p)
 
         completer.commands = completer.commands + dynamic_exec_list
         print('aaaaaaaa', completer.commands)
