@@ -125,7 +125,7 @@ class Autocomplete:
 
 def main():
 
-    history_list = []
+    #history_list = []
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_agg = ''
@@ -138,8 +138,6 @@ def main():
     readline.set_completer_delims('\t')
     
     while True:
-
-        print('tutaj?')
 
         output_file = None
         append = None
@@ -155,7 +153,7 @@ def main():
         command = input()
 
         command_foo = copy(command)
-        history_list.append(command_foo)
+        #history_list.append(command_foo)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
