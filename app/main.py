@@ -145,6 +145,9 @@ def main():
 
         command = input()
 
+        print('aa', command)
+        print('bb', sys.path)
+
         command_foo = copy(command)
         history_list.append(command_foo)
 
