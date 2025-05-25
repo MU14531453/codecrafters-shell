@@ -142,7 +142,6 @@ def main():
         output_file = None
         append = None
         err_flag = None
-        string_agg = ''
 
         completer.commands = command_list
         dynamic_path = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[1]
@@ -209,7 +208,7 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_foo, shell = True)
+                    subprocess.run(command_foo, shell = True, stdout = subprocess.DEVNULL)
                 else:
                     print(f'{command}: command not found')
 
