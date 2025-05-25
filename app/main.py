@@ -145,18 +145,9 @@ def main():
         string_agg = ''
 
         dynamic_exec_list = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')
-        print(dynamic_exec_list)
         for p in dynamic_exec_list:
-            subprocess.run(f'ls -1 {p}', shell = True)#, capture_output = True).stdout
-        exit(0)
+            completer.commands += subprocess.run(f'ls -1 {p}', shell = True, capture_output = True).stdout
 
-
-        for p in sys.path:
-            pass
-            #dynamic_exec_list += os.listdir(path = p)
-
-        completer.commands = completer.commands + dynamic_exec_list
-        print('aaaaaaaa', completer.commands)
         command = input()
 
         command_foo = copy(command)
