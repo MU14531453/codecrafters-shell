@@ -169,6 +169,8 @@ def main():
         match identifier:
 
             case 's':
+                print(open(output_file))
+                print('tutaj')
                 sys.stderr.write('l' + command_foo)
 
             case 'exit':
