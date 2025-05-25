@@ -132,8 +132,7 @@ def main():
 
     while True:
 
-        with open('foo.txt', 'a') as xd:
-            xd.write(command)
+        
 
         completer = Autocomplete(command_list)
         readline.set_completer(completer.complete)
@@ -145,6 +144,9 @@ def main():
         string_agg = ''
 
         command = input()
+
+        with open('foo.txt', 'a') as xd:
+            xd.write(command)
 
         readline.parse_and_bind(command)
 
