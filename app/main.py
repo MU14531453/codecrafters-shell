@@ -132,11 +132,12 @@ def main():
 
     while True:
 
-        
+        FLAG_S = False
 
-        completer = Autocomplete(command_list)
-        readline.set_completer(completer.complete)
-        readline.parse_and_bind('tab: complete')
+        if not FLAG_S:
+            completer = Autocomplete(command_list)
+            readline.set_completer(completer.complete)
+            readline.parse_and_bind('tab: complete')
 
         output_file = None
         append = None
@@ -144,11 +145,12 @@ def main():
         string_agg = ''
 
         command = input()
-        if command[0] == 's':
-            print(command)
+        if command[0] == 'l':
+            FLAG_S = True
 
-        readline.parse_and_bind(command)
-        readline.set_completer_delims('\t')
+        if not FLAG_S:
+            readline.parse_and_bind(command)
+            readline.set_completer_delims('\t')
 
         command_foo = copy(command)
 
