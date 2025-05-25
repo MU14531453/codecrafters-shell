@@ -144,7 +144,6 @@ def main():
         string_agg = ''
 
         command = input()
-        readline.parse_and_bind()
 
         #if command[0:2] == 'ls':
         #    FLAG_S = True
