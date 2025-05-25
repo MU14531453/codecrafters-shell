@@ -7,6 +7,7 @@ from pathlib import Path
 from copy import copy
 import time
 import readline
+import posixpath
 
 def parser(string, as_list = False):
 
@@ -143,9 +144,8 @@ def main():
         err_flag = None
         string_agg = ''
 
-        completer.commands = completer.commands + PATH
+        completer.commands = completer.commands + sys.path
         command = input()
-
 
         command_foo = copy(command)
         history_list.append(command_foo)
