@@ -120,18 +120,18 @@ class Autocomplete:
         results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
         return results[symbol_iter] + ' '
-    
 
 
 def main():
+
+    history_list = []
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_agg = ''
 
     print('$ ', end = '')
 
-    FLAG_S = False
-    completer = Autocomplete(command_list)
+    completer = Autocomplete(command_list + sys.path)
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
@@ -145,23 +145,10 @@ def main():
 
         command = input()
 
-        #if command[0:2] == 'ls':
-        #    FLAG_S = True
-
-        #if not FLAG_S:
-        
-
         command_foo = copy(command)
+        history_list.append(command_foo)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
-
-        #if command_foo[0] == 's':
-        #    filepath = output_file[::-1].split(chr(47), 1)[1][::-1]
-        #    file_name = output_file[::-1].split(chr(47), 1)[0][::-1]
-        #    #os.chdir(filepath)
-        #    subprocess.run(f'touch {file_name}', shell = True)
-        #    open(output_file, 'w').write('l' + command_foo)
-        #    continue
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
