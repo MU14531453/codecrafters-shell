@@ -145,10 +145,11 @@ def main():
 
         command = input()
 
-        with open('foo.txt', 'a') as xd:
-            xd.write(command)
+        #with open('foo.txt', 'a') as xd:
+        #    xd.write(command)
 
         readline.parse_and_bind(command)
+        readline.set_completer_delims('\t')
 
         command_foo = copy(command)
 
