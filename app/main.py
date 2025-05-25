@@ -134,6 +134,8 @@ def main():
     completer = Autocomplete(command_list)
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
+    readline.set_completer_delims('\t')
+
 
 
     while True:
@@ -149,7 +151,6 @@ def main():
 
         #if not FLAG_S:
         readline.parse_and_bind(command)
-        readline.set_completer_delims('\t')
 
         command_foo = copy(command)
 
@@ -173,10 +174,6 @@ def main():
             identifier = 'cat'
         
         match identifier:
-
-            case 's':
-                print('tutaj')
-                subprocess.run(''.join(['l', command_foo]), shell = True)
 
             case 'exit':
                 exit(int(command_full[1]))
