@@ -135,8 +135,7 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-    print('bb', sys.path)
-    os.environ.get('PYTHONPATH', '').split(os.pathsep)    
+    print('bb', open(r'/tmp/foo:$PATH'))
     
     while True:
 
@@ -145,10 +144,7 @@ def main():
         err_flag = None
         string_agg = ''
 
-        command = input()
-
-        print('aa', command)
-        
+        command = input()        
 
         command_foo = copy(command)
         history_list.append(command_foo)
