@@ -149,13 +149,13 @@ def main():
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
-        if command_foo[0] == 's':
-            filepath = output_file[::-1].split(chr(47), 1)[1][::-1]
-            file_name = output_file[::-1].split(chr(47), 1)[0][::-1]
-            #os.chdir(filepath)
-            subprocess.run(f'touch {file_name}', shell = True)
-            open(output_file, 'w').write('l' + command_foo)
-            continue
+        #if command_foo[0] == 's':
+        #    filepath = output_file[::-1].split(chr(47), 1)[1][::-1]
+        #    file_name = output_file[::-1].split(chr(47), 1)[0][::-1]
+        #    #os.chdir(filepath)
+        #    subprocess.run(f'touch {file_name}', shell = True)
+        #    open(output_file, 'w').write('l' + command_foo)
+        #    continue
 
         command_full = parser(command).split(' ', 1)
         identifier = command_full[0]
@@ -167,6 +167,9 @@ def main():
             identifier = 'cat'
         
         match identifier:
+
+            case 's':
+                sys.stderr.write('l' + command_foo)
 
             case 'exit':
                 exit(int(command_full[1]))

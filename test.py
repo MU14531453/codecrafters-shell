@@ -3,14 +3,11 @@ import readline
 class Autocomplete:
     def __init__(self, commands):
         self.commands = commands
-        self.results = None
-        self.state = None
 
-    def complete(self, text, state):
+    def complete(self, text, symbol_iter):
         results =  [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
-        self.state = state
-        return results[state]
+        return results[symbol_iter]
 
 words = ['echo', 'exit']
 completer = Autocomplete(words)
@@ -22,4 +19,3 @@ readline.parse_and_bind('tab: complete')
 line = input()
 
 print(completer.results)
-print(completer.state)
