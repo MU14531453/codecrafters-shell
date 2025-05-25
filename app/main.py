@@ -135,7 +135,7 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-
+    readline.parse_and_bind()
 
 
     while True:
@@ -146,11 +146,11 @@ def main():
         string_agg = ''
 
         command = input()
-        if command[0:2] == 'ls':
-            FLAG_S = True
+        #if command[0:2] == 'ls':
+        #    FLAG_S = True
 
-        if not FLAG_S:
-            readline.parse_and_bind(command)
+        #if not FLAG_S:
+        
 
         command_foo = copy(command)
 
