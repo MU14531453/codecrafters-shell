@@ -144,10 +144,6 @@ def main():
         err_flag = None
         string_agg = ''
 
-        #dynamic_exec_list = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[0]
-        #for p in dynamic_exec_list:
-        #    completer.commands += subprocess.run(f'ls -1 {p}', shell = True, capture_output = True).stdout
-
         dynamic_path = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[1]
         dynamic_commands = subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
         dynamic_commands = ''.join(dynamic_commands).strip()
