@@ -152,7 +152,6 @@ def main():
         dynamic_commands = subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
         dynamic_commands = ''.join(dynamic_commands).strip()
         completer.commands.append(dynamic_commands)
-        print(completer.commands)
 
         command = input()
 
