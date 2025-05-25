@@ -144,9 +144,8 @@ def main():
         string_agg = ''
 
         command = input()
-
-        #with open('foo.txt', 'a') as xd:
-        #    xd.write(command)
+        if command[0] == 's':
+            print(command)
 
         readline.parse_and_bind(command)
         readline.set_completer_delims('\t')
