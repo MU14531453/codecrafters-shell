@@ -117,7 +117,6 @@ class Autocomplete:
         self.commands = commands
 
     def complete(self, text, symbol_iter):
-        symbol_iter = 0
         results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
         return results[symbol_iter] + ' '
@@ -131,14 +130,13 @@ def main():
 
     print('$ ', end = '')
 
+    FLAG_S = False
+    completer = Autocomplete(command_list)
+    readline.set_completer(completer.complete)
+    readline.parse_and_bind('tab: complete')
+
+
     while True:
-
-        FLAG_S = False
-
-        if not FLAG_S:
-            completer = Autocomplete(command_list)
-            readline.set_completer(completer.complete)
-            readline.parse_and_bind('tab: complete')
 
         output_file = None
         append = None
@@ -146,12 +144,12 @@ def main():
         string_agg = ''
 
         command = input()
-        if command[0] == 'l':
-            FLAG_S = True
+        #if command[0:2] == 'ls':
+        #    FLAG_S = True
 
-        if not FLAG_S:
-            readline.parse_and_bind(command)
-            readline.set_completer_delims('\t')
+        #if not FLAG_S:
+        readline.parse_and_bind(command)
+        readline.set_completer_delims('\t')
 
         command_foo = copy(command)
 
