@@ -208,10 +208,7 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    if err_flag:
-                        subprocess.run(command_foo, shell = True, stdout = subprocess.DEVNULL)
-                    else:
-                        subprocess.run(command_foo, shell = True)
+                    subprocess.run(command_foo, shell = True)
                 else:
                     print(f'{command}: command not found')
 
