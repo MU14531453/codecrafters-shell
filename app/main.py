@@ -146,6 +146,7 @@ def main():
 
         dynamic_exec_list = []
         print(sys.path)
+        print(PATH)
         for p in sys.path:
             pass
             #dynamic_exec_list += os.listdir(path = p)
