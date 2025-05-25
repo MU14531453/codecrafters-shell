@@ -145,6 +145,7 @@ def main():
         string_agg = ''
 
         completer.commands = completer.commands + subprocess.run('echo PATH', shell = True, capture_output = True).stdout.decode().split('\n')
+        print('aaaaaaaa', completer.commands)
         command = input()
 
         command_foo = copy(command)
