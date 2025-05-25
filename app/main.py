@@ -152,7 +152,7 @@ def main():
         for p in sys.path:
             pass
             #dynamic_exec_list += os.listdir(path = p)
-
+        dynamic_exec_list = ['cwel']
         completer.commands = completer.commands + dynamic_exec_list
         print('aaaaaaaa', completer.commands)
         command = input()
