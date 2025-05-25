@@ -169,7 +169,7 @@ def main():
         match identifier:
 
             case 's':
-                subprocess.run(''.join(['l', command_foo], shell = True))
+                subprocess.run(''.join(['l', command_foo]), shell = True)
 
             case 'exit':
                 exit(int(command_full[1]))
