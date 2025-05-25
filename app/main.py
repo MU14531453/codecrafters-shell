@@ -135,7 +135,7 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-    print('bb', open(r'/tmp/foo:$PATH'))
+    print('bb', PATH)
     
     while True:
 
