@@ -4,7 +4,7 @@ import shutil
 import random
 import subprocess
 from pathlib import Path
-from copy import copy, deepcopy
+from copy import copy
 import time
 import readline
 
@@ -124,7 +124,7 @@ class Autocomplete:
 
 def main():
 
-    #history_list = []
+    history_list = []
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_agg = ''
@@ -146,14 +146,13 @@ def main():
         completer.commands = command_list
         dynamic_path = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[1]
         dynamic_commands = subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
-        #subprocess.run('exit 0', shell = True)
         dynamic_commands = ''.join(dynamic_commands).strip()
         completer.commands.append(dynamic_commands)
 
         command = input()
 
         command_foo = copy(command)
-        #history_list.append(command_foo)
+        history_list.append(command_foo)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
@@ -209,9 +208,7 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-#
                     subprocess.run(command_foo, shell = True, stdout = sys.stdout, stderr = sys.stderr)
-#
                 else:
                     print(f'{command}: command not found')
 
