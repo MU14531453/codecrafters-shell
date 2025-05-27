@@ -210,9 +210,9 @@ def main():
                 if identifier := shutil.which(identifier if identifier else ''):
                     if err_flag:
                         print('t1', command_foo)
-                    subprocess.run(command_foo, shell = True)
+                    a = subprocess.run(command_foo, shell = True)
                     if err_flag:
-                        print('t2', command)
+                        print('t2', a)
                 else:
                     print(f'{command}: command not found')
 
