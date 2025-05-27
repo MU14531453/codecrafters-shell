@@ -209,7 +209,7 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    subprocess.run(command_foo, shell = True)
+                    subprocess.run(command_foo + '\nexit 0', shell = True)
                 else:
                     print(f'{command}: command not found')
 
