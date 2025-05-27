@@ -97,7 +97,7 @@ def check_for_file_to_write(command):
     else:
         return (command, None, False, False)
 
-    return (write_command, output_file, append, err_flag)
+    return (write_command, output_file.strip(), append, err_flag)
 
 
 def write_to(file, text, append = False):
