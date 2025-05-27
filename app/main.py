@@ -208,8 +208,6 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    if err_flag:
-                        print('t1', command_foo)
                     a = subprocess.run(command_foo, shell = True)
                     if err_flag:
                         print('t2', a)
