@@ -178,7 +178,7 @@ def main():
                             open(output_file, 'r')
                         except FileNotFoundError:
                             write_to(output_file, '', append = append)
-                            print(command_full[1])
+                            #print(command_full[1])
                         finally:
                             write_to(output_file, '', append = append)
                     else:
