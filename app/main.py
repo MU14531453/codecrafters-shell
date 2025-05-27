@@ -7,7 +7,6 @@ from pathlib import Path
 from copy import copy
 import time
 import readline
-import posixpath
 
 def parser(string, as_list = False):
 
