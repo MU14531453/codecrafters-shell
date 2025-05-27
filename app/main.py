@@ -209,6 +209,8 @@ def main():
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
                     a = subprocess.run(command_foo, shell = True, capture_output = True)
+                    print(len(a.stdout))
+                    print(len(a.stderr))
                     
                     if a.stdout is not None:
                         print(a.stdout.decode())
