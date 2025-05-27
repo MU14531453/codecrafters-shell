@@ -172,8 +172,6 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                print('hello')
-                continue
                 if output_file:
                     if err_flag:
                         try:
@@ -211,11 +209,9 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    if err_flag:
-                        print('tutaj 1')
+#
                     subprocess.run(command_foo, shell = True, stdout = sys.stdout, stderr = sys.stderr)
-                    if err_flag:
-                        print('tutaj 2')
+#
                 else:
                     print(f'{command}: command not found')
 
