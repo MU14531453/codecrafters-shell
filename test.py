@@ -1,21 +1,26 @@
-import readline
+def check_for_file_to_write(command):
 
-class Autocomplete:
-    def __init__(self, commands):
-        self.commands = commands
+    write_list = ['>', '1>', '2>', '>>', '1>>', '2>>']
 
-    def complete(self, text, symbol_iter):
-        results =  [x for x in self.commands if x.startswith(text)] + [None]
-        self.results = results
-        return results[symbol_iter]
+    append = bool(command.count('>') - 1)
 
-words = ['echo', 'exit']
-completer = Autocomplete(words)
+    for x, symbol in enumerate(command):
+        if symbol == '>' and x:
+            if command[x-1] == '2':
+                err_flag = True
+                break
+            else:
+                err_flag = False
+    
+    if any([x for x in command if x in write_list]):
+        io_splitter = command.replace('1>', '>').replace('2>', '>').replace('>>', '>').split('>')
+        write_command = io_splitter[0]
+        output_file = io_splitter[1]
+    else:
+        return (command, None, False, False)
 
-#readline.set_completer_delims(' ')
-readline.set_completer(completer.complete)
-readline.parse_and_bind('tab: complete')
+    return (write_command, output_file, append, err_flag)
 
-line = input()
+_, __, ___, a = check_for_file_to_write('2>>')
 
-print(completer.results)
+print(a)
