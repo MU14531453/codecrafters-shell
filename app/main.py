@@ -116,10 +116,10 @@ class Autocomplete:
     def __init__(self, commands):
         self.commands = commands
 
-    def complete(self, text, symbol_iter):
+    def complete(self, text, state):
         results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
-        return results[symbol_iter] + ' '
+        return results[state] + ' '
 
 
 def main():
