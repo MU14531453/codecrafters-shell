@@ -4,7 +4,7 @@ import shutil
 import random
 import subprocess
 from pathlib import Path
-from copy import copy
+from copy import copy, deepcopy
 import time
 import readline
 
@@ -152,7 +152,7 @@ def main():
 
         command = input()
 
-        command_foo = copy(command)
+        command_foo = deepcopy(command)
         #history_list.append(command_foo)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
