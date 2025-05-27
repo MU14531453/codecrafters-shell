@@ -172,6 +172,7 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
+                print('hello')
                 continue
                 if output_file:
                     if err_flag:
