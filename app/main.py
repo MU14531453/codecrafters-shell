@@ -212,7 +212,6 @@ def main():
                 else:
                     print(f'{command}: command not found')
 
-        print()
         print('$ ', end = '')
 
 
