@@ -181,7 +181,7 @@ def main():
                             #print(command_full[1])
                         finally:
                             write_to(output_file, '', append = append)
-                            print(command_full[1])
+                            #print(command_full[1])
                     else:
                         write_to(output_file, command_full[1] + '\n', append = append)
                 else:
