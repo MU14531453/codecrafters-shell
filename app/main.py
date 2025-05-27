@@ -152,7 +152,7 @@ def main():
 
         command = input()
 
-        command_foo = deepcopy(command)
+        command_foo = copy(command)
         #history_list.append(command_foo)
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
