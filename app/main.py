@@ -209,9 +209,11 @@ def main():
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
-                    print('tutaj 1')
+                    if err_flag:
+                        print('tutaj 1')
                     subprocess.run(command_foo, shell = True, stdout = sys.stdout, stderr = sys.stderr)
-                    print('tutaj 2')
+                    if err_flag:
+                        print('tutaj 2')
                 else:
                     print(f'{command}: command not found')
 
