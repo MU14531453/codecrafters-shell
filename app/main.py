@@ -159,8 +159,6 @@ def main():
 
         command = input()
 
-        print('test 1')
-
         command_foo = copy(command)
         history_list.append(command_foo)
 
