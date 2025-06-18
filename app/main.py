@@ -160,7 +160,7 @@ def main():
         command_foo = copy(command)
         history_list.append(command_foo)
 
-        if command = chr(27) + chr(91) + chr(65):
+        if command == chr(27) + chr(91) + chr(65):
             print('strałka test')
             exit(0)
             if history_pointer is None:
