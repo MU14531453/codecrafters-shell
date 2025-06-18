@@ -129,7 +129,7 @@ def main():
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_agg = ''
 
-    print('$ ', end = '')
+    
 
     completer = Autocomplete(command_list)
 
@@ -147,6 +147,8 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
+
+    print('$ ', end = '')
 
     
     while True:
