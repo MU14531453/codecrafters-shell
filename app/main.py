@@ -141,9 +141,9 @@ def main():
     for folder in dynamic_path:
         folder_list = subprocess.run(f'ls -1 {folder}', shell = True, capture_output = True).stdout.decode()
         dynamic_commands.append(''.join(folder_list).strip())
-    print('ddd', dynamic_commands)
-    #dynamic_commands = ''.join(dynamic_commands).strip()
-    completer.commands.append(dynamic_commands)
+    dynamic_commands = sorted(dynamic_commands)
+    completer.commands.extend(dynamic_commands)
+    print('cc', completer.commands)
     
     readline.clear_history()
     readline.set_completer(completer.complete)
