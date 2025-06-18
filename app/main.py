@@ -212,6 +212,7 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'history':
+                print('cf', command_full[0])
                 for x, line in enumerate(history_list):
                     print(f' {x+1} {line}')
             
