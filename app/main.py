@@ -7,7 +7,6 @@ from pathlib import Path
 from copy import copy
 import time
 import readline
-from keyboard import is_pressed
 
 def parser(string, as_list = False):
 
@@ -161,7 +160,7 @@ def main():
         command_foo = copy(command)
         history_list.append(command_foo)
 
-        if is_pressed('up arrow'):
+        if command = chr(27) + chr(91) + chr(65):
             print('strałka test')
             exit(0)
             if history_pointer is None:
