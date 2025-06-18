@@ -129,7 +129,7 @@ def main():
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_agg = ''
 
-    print('$ ', end = '')
+    
 
 
     completer = Autocomplete(command_list)
@@ -155,6 +155,8 @@ def main():
         output_file = None
         append = None
         err_flag = None
+
+        print('$ ', end = '')
 
         command = input()
 
