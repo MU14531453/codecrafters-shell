@@ -147,6 +147,7 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')#possible-completions')
     readline.set_completer_delims('\t')
+
     
     while True:
 
@@ -155,6 +156,8 @@ def main():
         err_flag = None
 
         command = input()
+
+        print('test 1')
 
         command_foo = copy(command)
         history_list.append(command_foo)
