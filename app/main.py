@@ -161,7 +161,8 @@ def main():
                 history_pointer = len(history_list)
             else:
                 history_pointer = max(0, history_pointer - 1)
-            print(f'{history_list[history_pointer]}\n')
+            print(f'{history_list[history_pointer]}')
+            print('$ ', end = '')
             continue
 
         command_foo = copy(command)
