@@ -155,6 +155,10 @@ def main():
 
         command = input()
 
+        if command == chr(38):
+            print(f'$ {history_list[-1]}', end = '')
+            continue
+
         command_foo = copy(command)
         history_list.append(command_foo)
 
