@@ -217,7 +217,7 @@ def main():
                         print(f' {x+1} {line}')
                 else:
                     command_number = int(command_full[1])
-                    for y, line in enumerate(history_list[command_number+1:]):
+                    for y, line in enumerate(history_list[command_number:]):
                         print(f' {y+1+command_number} {line}')
                 
             
