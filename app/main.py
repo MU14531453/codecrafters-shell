@@ -137,9 +137,12 @@ def main():
     completer.commands = command_list
     #completer.commands = copy(command_list)
     dynamic_path = [folder for folder in subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':') if folder[:4] == '/tmp']
-    print('dp', dynamic_path)
-    dynamic_commands = subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
-    dynamic_commands = ''.join(dynamic_commands).strip()
+    dynamic_commands = []
+    for folder in dynamic_path:
+        folder_list = subprocess.run(f'ls -1 {folder}', shell = True, capture_output = True).stdout.decode()
+        dynamic_commands.append(''.join(folder_list).strip())
+    print('ddd', dynamic_commands)
+    #dynamic_commands = ''.join(dynamic_commands).strip()
     completer.commands.append(dynamic_commands)
     
     readline.clear_history()
