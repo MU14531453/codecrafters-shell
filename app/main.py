@@ -219,7 +219,7 @@ def main():
                     command_number = int(command_full[1])
                     cut = len(history_list) - command_number - 1
                     for y, line in enumerate(history_list[cut:]):
-                        print(f' {y+1+command_number} {line}')
+                        print(f' {y+2+command_number} {line}')
                 
             
             case default:
