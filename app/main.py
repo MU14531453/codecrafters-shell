@@ -119,7 +119,7 @@ class Autocomplete:
     def complete(self, text, symbol_iter):
         results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
-        return results[symbol_iter]
+        return results[symbol_iter] + '\n'
 
 
 def main():
@@ -144,7 +144,7 @@ def main():
     completer.commands.extend(dynamic_commands)
     
     readline.clear_history()
-    #readline.set_completer(completer.complete)
+    readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
 
