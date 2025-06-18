@@ -156,7 +156,7 @@ def main():
         command = input()
 
         if command == chr(38):
-            print(f'$ {history_list[-1]}', end = '')
+            print(f'$ {history_list[-1]}\n$ ')
             continue
 
         command_foo = copy(command)
