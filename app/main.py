@@ -160,13 +160,15 @@ def main():
         command_foo = copy(command)
         history_list.append(command_foo)
 
-        #if command == chr(38):
-        #    if history_pointer is None:
-        #        history_pointer = len(history_list)
-        #    else:
-        #        history_pointer = max(0, history_pointer - 1)
-        #    print(f'$ {history_list[history_pointer]}')
-        #    continue
+        if command == chr(38):
+            print('strałka test')
+            exit(0)
+            if history_pointer is None:
+                history_pointer = len(history_list)
+            else:
+               history_pointer = max(0, history_pointer - 1)
+            print(f'$ {history_list[history_pointer]}')
+            continue
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
