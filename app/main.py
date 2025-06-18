@@ -141,7 +141,7 @@ def main():
     
     readline.clear_history()
     readline.set_completer(completer.complete)
-    readline.parse_and_bind('tab: list')
+    readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
     
     while True:
