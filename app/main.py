@@ -125,11 +125,9 @@ class Autocomplete:
 def main():
 
     history_list = []
-    tab_count = 0
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
-
 
     completer = Autocomplete(command_list)
 
@@ -148,14 +146,12 @@ def main():
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
 
-    
+    print('$ ', end = '')
     while True:
 
         output_file = None
         append = None
         err_flag = None
-
-        print('$ ', end = '')
 
         command = input()
 
