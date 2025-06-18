@@ -127,7 +127,7 @@ def main():
     history_list = []
     tab_count = 0
 
-    command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
+    command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
 
 
@@ -158,12 +158,6 @@ def main():
         print('$ ', end = '')
 
         command = input()
-
-        if command == chr(9):
-            tab_count += 1
-            if tab_count == 2:
-                tab_count = 0
-                continue
 
         print('test 1')
 
@@ -222,6 +216,10 @@ def main():
                         os.chdir(command_full[1])
                     except FileNotFoundError:
                         print(f'cd: {command_full[1]}: No such file or directory')
+
+            case 'history':
+                for line in history_list:
+                    print(line)
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
