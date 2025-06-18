@@ -212,9 +212,10 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'history':
-                print('cf', command_full[1])
+                command_number = command_full[1] if command_full[1] else 0
                 for x, line in enumerate(history_list):
-                    print(f' {x+1} {line}')
+                    if x + command_number < len(history_list):
+                        print(f' {x+1} {line}')
             
             case default:
                 if identifier := shutil.which(identifier if identifier else ''):
