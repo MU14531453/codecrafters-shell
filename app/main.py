@@ -119,9 +119,7 @@ class Autocomplete:
     def complete(self, text, symbol_iter):
         results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
-        #return results[symbol_iter] + ' '
-        return '\n'.join(results) + ' '
-
+        return results#[symbol_iter] + ' '
 
 def main():
 
