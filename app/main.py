@@ -151,7 +151,6 @@ def main():
 
     
     while True:
-        print('test 0')
 
         output_file = None
         append = None
