@@ -133,8 +133,8 @@ def main():
 
     completer = Autocomplete(command_list)
 
-    completer.commands = command_list
-    #completer.commands = copy(command_list)
+    #completer.commands = command_list
+    completer.commands = copy(command_list)
     dynamic_path = [folder for folder in subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':') if folder[:4] == '/tmp']
     dynamic_commands = []
     for folder in dynamic_path:
@@ -195,8 +195,8 @@ def main():
                     print(command_full[1])
 
             case 'type':
-                #if command_full[1].strip() in command_list:
-                if command_full[1].strip() in command_list[:-1]:
+                if command_full[1].strip() in command_list:
+                #if command_full[1].strip() in command_list[:-1]:
                     print(f'{command_full[1]} is a shell builtin')
                 elif PATH := shutil.which(command_full[1] if command_full[1] else ''):
                     print(f'{command_full[1]} is {PATH}')
