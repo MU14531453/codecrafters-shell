@@ -125,6 +125,7 @@ class Autocomplete:
 def main():
 
     history_list = []
+    history_pointer = None
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
@@ -156,7 +157,11 @@ def main():
         command = input()
 
         if command == chr(38):
-            print(f'$ {history_list[-1]}\n$ ')
+            if history_pointer is None:
+                history_pointer = len(history_list)
+            else:
+                history_pointer = max(0, history_pointer - 1)
+            print(f'$ {history_list[history_pointer]}\n$ ')
             continue
 
         command_foo = copy(command)
