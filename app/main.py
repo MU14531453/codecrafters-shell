@@ -148,6 +148,7 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
+    print('test 0')
 
     
     while True:
