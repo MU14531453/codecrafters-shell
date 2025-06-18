@@ -132,6 +132,13 @@ def main():
     print('$ ', end = '')
 
     completer = Autocomplete(command_list)
+
+    completer.commands = command_list
+    dynamic_path = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[1]
+    dynamic_commands = subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
+    dynamic_commands = ''.join(dynamic_commands).strip()
+    completer.commands.append(dynamic_commands)
+    
     readline.clear_history()
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
@@ -143,11 +150,11 @@ def main():
         append = None
         err_flag = None
 
-        completer.commands = command_list
-        dynamic_path = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[1]
-        dynamic_commands = subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
-        dynamic_commands = ''.join(dynamic_commands).strip()
-        completer.commands.append(dynamic_commands)
+        #completer.commands = command_list
+        #dynamic_path = subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':')[1]
+        #dynamic_commands = subprocess.run(f'ls -1 {dynamic_path}', shell = True, capture_output = True).stdout.decode()
+        #dynamic_commands = ''.join(dynamic_commands).strip()
+        #completer.commands.append(dynamic_commands)
 
         command = input()
 
@@ -187,7 +194,7 @@ def main():
                     print(command_full[1])
 
             case 'type':
-                if command_full[1].strip() in command_list:
+                if command_full[1].strip() in command_list[:-1]:
                     print(f'{command_full[1]} is a shell builtin')
                 elif PATH := shutil.which(command_full[1] if command_full[1] else ''):
                     print(f'{command_full[1]} is {PATH}')
