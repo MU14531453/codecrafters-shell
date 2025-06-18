@@ -143,7 +143,6 @@ def main():
         dynamic_commands.append(''.join(folder_list).strip())
     dynamic_commands = sorted(dynamic_commands)
     completer.commands.extend(dynamic_commands)
-    print('cc', completer.commands)
     
     readline.clear_history()
     readline.set_completer(completer.complete)
