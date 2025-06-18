@@ -125,11 +125,10 @@ class Autocomplete:
 def main():
 
     history_list = []
+    tab_count = 0
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd']
     string_agg = ''
-
-    
 
 
     completer = Autocomplete(command_list)
@@ -159,6 +158,12 @@ def main():
         print('$ ', end = '')
 
         command = input()
+
+        if command == chr(9):
+            tab_count += 1
+            if tab_count == 2:
+                tab_count = 0
+                continue
 
         print('test 1')
 
