@@ -146,9 +146,8 @@ def main():
     
     readline.clear_history()
     readline.set_completer(completer.complete)
-    readline.parse_and_bind('tab: complete')
+    readline.parse_and_bind('tab: complete kill-whole-line')
     readline.set_completer_delims('\t')
-    print('test 0')
 
     
     while True:
