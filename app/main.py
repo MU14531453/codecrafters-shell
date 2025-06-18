@@ -212,7 +212,7 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'history':
-                command_number = command_full[1] if command_full[1] else 0
+                command_number = int(command_full[1]) if command_full[1] else 0
                 for x, line in enumerate(history_list):
                     if x + command_number < len(history_list):
                         print(f' {x+1} {line}')
