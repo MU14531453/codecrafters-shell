@@ -1,12 +1,11 @@
 import sys
 import os
 import shutil
-import random
 import subprocess
 from pathlib import Path
 from copy import copy
-import time
 import readline
+import io
 
 def parser(string, as_list = False):
 
@@ -124,8 +123,6 @@ class Autocomplete:
 
 def main():
 
-    sys.stdout.write('$ ')
-
     history_list = []
     history_pointer = None
 
@@ -150,6 +147,8 @@ def main():
 
     #print('$ ', end = '')
     while True:
+
+        sys.stdout.buffer.write(b'$ ')
 
         output_file = None
         append = None
@@ -240,7 +239,7 @@ def main():
                 else:
                     print(f'{command}: command not found')
 
-        sys.stdout.write('$ ')#print('$ ', end = '')
+        #sys.stdout.write('$ ')#print('$ ', end = '')
 
 
 if __name__ == '__main__':
