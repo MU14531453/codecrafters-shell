@@ -141,14 +141,13 @@ def main():
     
     readline.clear_history()
     readline.set_completer(completer.complete)
-    readline.parse_and_bind('tab: complete')
+    readline.parse_and_bind('tab: complete C-l')
     readline.set_completer_delims('\t')
     #readline.set_auto_history(False)
 
-    #print('$ ', end = '')
+    print('$ ', end = '')
     while True:
 
-        sys.stdout.buffer = b'$ '
 
         output_file = None
         append = None
@@ -239,7 +238,7 @@ def main():
                 else:
                     print(f'{command}: command not found')
 
-        #sys.stdout.write('$ ')#print('$ ', end = '')
+        print('$ ', end = '')
 
 
 if __name__ == '__main__':
