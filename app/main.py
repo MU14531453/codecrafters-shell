@@ -141,7 +141,7 @@ def main():
     
     readline.clear_history()
     readline.set_completer(completer.complete)
-    readline.parse_and_bind('tab: complete C-l')
+    readline.parse_and_bind('tab: complete history-preserve-point on')
     readline.set_completer_delims('\t')
     #readline.set_auto_history(False)
 
@@ -157,16 +157,6 @@ def main():
 
         command_foo = copy(command)
         history_list.append(command_foo)
-
-        if command == '^[[A':
-            print('strałka test')
-            exit(0)
-            if history_pointer is None:
-                history_pointer = len(history_list)
-            else:
-               history_pointer = max(0, history_pointer - 1)
-            print(f'$ {history_list[history_pointer]}')
-            continue
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
