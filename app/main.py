@@ -131,8 +131,6 @@ def main():
     string_agg = ''
 
     completer = Autocomplete(command_list)
-
-    #completer.commands = command_list
     completer.commands = copy(command_list)
     dynamic_path = [folder for folder in subprocess.run('echo $PATH', shell = True, capture_output = True).stdout.decode().split(':') if folder[:4] == '/tmp']
     dynamic_commands = []
@@ -146,7 +144,7 @@ def main():
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-    readline.set_auto_history(False)
+    #readline.set_auto_history(False)
 
     print('$ ', end = '')
     while True:
@@ -160,7 +158,7 @@ def main():
         command_foo = copy(command)
         history_list.append(command_foo)
 
-        if command == chr(27) + chr(91) + chr(65):
+        if command == '^[[A':
             print('strałka test')
             exit(0)
             if history_pointer is None:
