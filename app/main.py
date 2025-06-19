@@ -240,7 +240,7 @@ def main():
                 else:
                     print(f'{command}: command not found')
 
-        print('$ ', end = '')
+        sys.stdout.write('$ ')#print('$ ', end = '')
 
 
 if __name__ == '__main__':
