@@ -119,10 +119,12 @@ class Autocomplete:
     def complete(self, text, symbol_iter):
         results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
-        return '$ ' + results[symbol_iter]
+        return results[symbol_iter]
 
 
 def main():
+
+    sys.stdout.write('$ ')
 
     history_list = []
     history_pointer = None
@@ -146,7 +148,7 @@ def main():
     readline.set_completer_delims('\t')
     #readline.set_auto_history(False)
 
-    print('$ ', end = '')
+    #print('$ ', end = '')
     while True:
 
         output_file = None
