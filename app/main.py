@@ -148,7 +148,7 @@ def main():
     #print('$ ', end = '')
     while True:
 
-        sys.stdout.buffer.write(b'$ ')
+        sys.stdout.buffer = b'$ '
 
         output_file = None
         append = None
