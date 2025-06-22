@@ -236,8 +236,9 @@ def main():
                                     for x, line in enumerate(history_list):
                                         if x >= history_pointer:
                                             h.write(f'{line}\n')
-                                    #h.write(f'{command_foo}\n')
                                 history_pointer = x
+
+
                     #if command_full[1][:2] == '-r':
                     #    with open(command_full[1][3:], 'r') as history_file:
                     #        a = input('$ ')
@@ -249,6 +250,8 @@ def main():
                     #    with open(command_full[1][3:], 'w') as history_file:
                     #        for x, line in enumerate(history_list):
                     #            history_file.write(f'{line}\n')
+
+
                     else:
                         command_number = int(command_full[1])
                         cut = len(history_list) - command_number
