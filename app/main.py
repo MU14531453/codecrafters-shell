@@ -125,6 +125,7 @@ def main():
 
     history_list = []
     history_file = None
+    history_pointer = 0
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
@@ -208,11 +209,15 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'history':
+
                 if history_file is not None:
                     with open(history_file, 'r') as hist_temp:
-                        history_list = [l.rstrip() for l in hist_temp]
+                        curr_history_path = [l.rstrip() for l in hist_temp]
+                else:
+                    curr_history_path = history_list
+
                 if len(command_full) == 1:
-                    for x, line in enumerate(history_list):
+                    for x, line in enumerate(curr_history_path):
                         print(f' {x+1} {line}')
                 else:
                     if command_full[1][0] == '-':
@@ -229,8 +234,10 @@ def main():
                                 history_file = command_full[1][3:]
                                 with open(history_file, 'a') as h:
                                     for x, line in enumerate(history_list):
-                                        h.write(f'{line}\n')
+                                        if x >= history_pointer:
+                                            h.write(f'{line}\n')
                                     h.write(f'{command_foo}\n')
+                                history_pointer = x
                     #if command_full[1][:2] == '-r':
                     #    with open(command_full[1][3:], 'r') as history_file:
                     #        a = input('$ ')
