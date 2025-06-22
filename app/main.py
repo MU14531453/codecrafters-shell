@@ -125,8 +125,8 @@ def main():
 
     history_list = []
     history_file_path = 'history_file.txt'
-    with open(history_file_path, 'w') as history_file:
-        history_file.write('')
+    #with open(history_file_path, 'w') as history_file:
+    #    history_file.write('')
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
@@ -156,9 +156,9 @@ def main():
 
         command_foo = copy(command)
         history_list.append(command_foo)
-        with open(history_file_path, 'a') as history_file:
-            history_file.write(command_foo)
-            history_file.write('\n')
+        #with open(history_file_path, 'a') as history_file:
+        #    history_file.write(command_foo)
+        #    history_file.write('\n')
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
@@ -218,7 +218,7 @@ def main():
                         print(f' {x+1} {line}')
                 else:
                     if command_full[1] == '-r':
-                        with open(history_file_path, 'r') as history_file:
+                        with open(command_full[2], 'r') as history_file:
                             for line in history_file.readlines():
                                 print(line)
                     else:
