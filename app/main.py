@@ -215,8 +215,8 @@ def main():
                     for x, line in enumerate(history_list):
                         print(f' {x+1} {line}')
                 else:
-                    if command_full[1][1] == '-':
-                        match command_full[1][2]:
+                    if command_full[1][0] == '-':
+                        match command_full[1][1]:
                             case 'r':
                                 history_file = command_full[1][3:]
                             case 'w':
