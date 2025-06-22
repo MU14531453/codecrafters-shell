@@ -228,8 +228,9 @@ def main():
                             case 'a':
                                 history_file = command_full[1][3:]
                                 with open(history_file, 'a') as h:
+                                    h.write('\n')
                                     for x, line in enumerate(history_list):
-                                        h.write(f'{"\n" if not x else ""}{line}\n')
+                                        h.write(f'{line}\n')
                                     h.write(f'{command_foo}')
                     #if command_full[1][:2] == '-r':
                     #    with open(command_full[1][3:], 'r') as history_file:
