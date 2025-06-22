@@ -220,10 +220,12 @@ def main():
                             case 'r':
                                 history_file = command_full[1][3:]
                             case 'w':
+                                history_file = command_full[1][3:]
                                 with open(history_file, 'w') as h:
                                     for x, line in enumerate(history_list):
                                         h.write(f'{line}\n')
                             case 'a':
+                                history_file = command_full[1][3:]
                                 with open(history_file, 'a') as h:
                                     for x, line in enumerate(history_list):
                                         h.write(f'{line}\n')
