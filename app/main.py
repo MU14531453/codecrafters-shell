@@ -228,10 +228,9 @@ def main():
                             case 'a':
                                 history_file = command_full[1][3:]
                                 with open(history_file, 'a') as h:
-                                    h.write('\n')
                                     for x, line in enumerate(history_list):
                                         h.write(f'{line}\n')
-                                    h.write(f'{command_foo}')
+                                    h.write(f'{command_foo}\n')
                     #if command_full[1][:2] == '-r':
                     #    with open(command_full[1][3:], 'r') as history_file:
                     #        a = input('$ ')
