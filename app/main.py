@@ -236,7 +236,7 @@ def main():
                                     for x, line in enumerate(history_list):
                                         if x >= history_pointer:
                                             h.write(f'{line}\n')
-                                    h.write(f'{command_foo}\n')
+                                    h.write(f'{command_foo}')
                                 history_pointer = x
                     #if command_full[1][:2] == '-r':
                     #    with open(command_full[1][3:], 'r') as history_file:
