@@ -145,7 +145,7 @@ def main():
     readline.set_completer_delims('\t')
     #readline.set_auto_history(False)
 
-    print('$ ', end = '')
+    #print('$ ', end = '')
     while True:
 
 
@@ -153,7 +153,7 @@ def main():
         append = None
         err_flag = None
 
-        command = input()
+        command = input('$ ')
 
         command_foo = copy(command)
         history_list.append(command_foo)
