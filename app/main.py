@@ -236,9 +236,10 @@ def main():
                                     for x, line in enumerate(history_list):
                                         if x >= history_pointer:
                                             h.write(f'{line}\n')
-                                history_pointer = x
+                                
                                 if history_pointer != 0:
                                     print(history_list)
+                                history_pointer = x
                                 #print('hhh', history_pointer)
 
 
