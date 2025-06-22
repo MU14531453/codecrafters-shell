@@ -223,6 +223,7 @@ def main():
                             print(1, command_foo)
                             for x, line in enumerate(history_file.readlines()):
                                 print(x + 2, line[:-1])
+                            print(x + 2, 'history')
                     else:
                         command_number = int(command_full[1])
                         cut = len(history_list) - command_number
