@@ -126,7 +126,7 @@ def main():
     history_list = []
     history_file_path = 'history_file.txt'
     with open(history_file_path, 'w') as history_file:
-        history_file.write()
+        history_file.write('')
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
