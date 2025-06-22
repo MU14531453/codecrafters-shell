@@ -221,7 +221,7 @@ def main():
                         with open(command_full[1][3:], 'r') as history_file:
                             print('$    ')
                             for x, line in enumerate(history_file.readlines()):
-                                print(x, line)
+                                print(x, line[:-1])
                     else:
                         command_number = int(command_full[1])
                         cut = len(history_list) - command_number
