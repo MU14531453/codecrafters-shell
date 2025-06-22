@@ -124,7 +124,9 @@ class Autocomplete:
 def main():
 
     history_list = []
-    history_pointer = None
+    history_file_path = 'history_file.txt'
+    with open(history_file_path, 'w') as history_file:
+        history_file.write()
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
@@ -141,13 +143,10 @@ def main():
     
     readline.clear_history()
     readline.set_completer(completer.complete)
-    readline.parse_and_bind('tab: complete')# history-preserve-point on')
+    readline.parse_and_bind('tab: complete')
     readline.set_completer_delims('\t')
-    #readline.set_auto_history(False)
 
-    #print('$ ', end = '')
     while True:
-
 
         output_file = None
         append = None
@@ -157,6 +156,9 @@ def main():
 
         command_foo = copy(command)
         history_list.append(command_foo)
+        with open(history_file_path, 'a') as history_file:
+            history_file.write(command_foo)
+            history_file.write('\n')
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
@@ -192,7 +194,6 @@ def main():
 
             case 'type':
                 if command_full[1].strip() in command_list:
-                #if command_full[1].strip() in command_list[:-1]:
                     print(f'{command_full[1]} is a shell builtin')
                 elif PATH := shutil.which(command_full[1] if command_full[1] else ''):
                     print(f'{command_full[1]} is {PATH}')
@@ -216,10 +217,15 @@ def main():
                     for x, line in enumerate(history_list):
                         print(f' {x+1} {line}')
                 else:
-                    command_number = int(command_full[1])
-                    cut = len(history_list) - command_number
-                    for y, line in enumerate(history_list[cut:]):
-                        print(f' {y+2+command_number} {line}')
+                    if command_full[1] == '-r':
+                        with open(history_file_path, 'r') as history_file:
+                            for line in history_file.readlines():
+                                print(line)
+                    else:
+                        command_number = int(command_full[1])
+                        cut = len(history_list) - command_number
+                        for y, line in enumerate(history_list[cut:]):
+                            print(f' {y+2+command_number} {line}')
                 
             
             case default:
@@ -227,8 +233,6 @@ def main():
                     subprocess.run(command_foo, shell = True)
                 else:
                     print(f'{command}: command not found')
-
-        #print('$ ', end = '')
 
 
 if __name__ == '__main__':
