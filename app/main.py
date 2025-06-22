@@ -237,7 +237,8 @@ def main():
                                         if x >= history_pointer:
                                             h.write(f'{line}\n')
                                 history_pointer = x
-                                print('hhh', history_pointer)
+                                print(history_list)
+                                #print('hhh', history_pointer)
 
 
                     #if command_full[1][:2] == '-r':
