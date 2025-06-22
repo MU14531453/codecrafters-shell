@@ -221,6 +221,8 @@ def main():
                         print(f' {1} history -r {history_file}')
                     for x, line in enumerate(curr_history_path):
                         print(f' {x+1+int(flag_history_from_file)} {line}')
+                    if flag_history_from_file == True:
+                        print(f' {x + 2} history')
                 else:
                     if command_full[1][0] == '-':
                         match command_full[1][1]:
