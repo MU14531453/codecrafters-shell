@@ -174,8 +174,10 @@ def main():
 
             case 'exit':
                 if os.getenv('HISTFILE'):
-                    with open(os.getenv('HISTFILE'), 'a') as h:
-                        h.write('command_foo\n')
+                    with open(os.getenv('HISTFILE'), 'w') as h:
+                        for x, line in enumerate(history_list):
+                            h.write(f'{line}\n')
+                        h.write(f'{command_foo}\n')
                         h.close()
                 exit(int(command_full[1]))
 
