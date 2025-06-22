@@ -176,6 +176,7 @@ def main():
                 if os.getenv('HISTFILE'):
                     with open('HISTFILE', 'a') as h:
                         h.write(command_foo)
+                        h.close()
                 exit(int(command_full[1]))
 
             case 'echo':
