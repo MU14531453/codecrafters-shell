@@ -234,9 +234,10 @@ def main():
                                 history_file = command_full[1][3:]
                                 with open(history_file, 'a') as h:
                                     for x, line in enumerate(history_list):
-                                        if x > history_pointer:
+                                        if x >= history_pointer:
                                             h.write(f'{line}\n')
                                 history_pointer = x
+                                print('hhh', history_pointer)
 
 
                     #if command_full[1][:2] == '-r':
