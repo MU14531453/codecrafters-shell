@@ -126,9 +126,9 @@ def main():
     history_list = []
     history_file = None
     history_pointer = 0
+    flag_history_from_file = False
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
-    string_agg = ''
 
     completer = Autocomplete(command_list)
     completer.commands = copy(command_list)
@@ -217,13 +217,16 @@ def main():
                     curr_history_path = history_list
 
                 if len(command_full) == 1:
+                    if flag_history_from_file == True:
+                        print(f' {1} history -r {history_file}')
                     for x, line in enumerate(curr_history_path):
-                        print(f' {x+1} {line}')
+                        print(f' {x+1+int(flag_history_from_file)} {line}')
                 else:
                     if command_full[1][0] == '-':
                         match command_full[1][1]:
                             case 'r':
                                 history_file = command_full[1][3:]
+                                flag_history_from_file = True
                             case 'w':
                                 history_file = command_full[1][3:]
                                 with open(history_file, 'w') as h:
@@ -235,7 +238,6 @@ def main():
                                     for x, line in enumerate(history_list):
                                         if x >= history_pointer:
                                             h.write(f'{line}\n')
-                                
                                 history_pointer = x + 1
 
 
