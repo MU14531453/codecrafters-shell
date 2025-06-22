@@ -124,9 +124,7 @@ class Autocomplete:
 def main():
 
     history_list = []
-    history_file_path = 'history_file.txt'
-    #with open(history_file_path, 'w') as history_file:
-    #    history_file.write('')
+    history_file = None
 
     command_list = ['exit', 'echo', 'type', 'pwd', 'cd', 'history']
     string_agg = ''
@@ -156,9 +154,6 @@ def main():
 
         command_foo = copy(command)
         history_list.append(command_foo)
-        #with open(history_file_path, 'a') as history_file:
-        #    history_file.write(command_foo)
-        #    history_file.write('\n')
 
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
@@ -213,21 +208,36 @@ def main():
                         print(f'cd: {command_full[1]}: No such file or directory')
 
             case 'history':
+                if history_file is not None:
+                    with open(history_file, 'r') as hist_temp:
+                        history_list = [l.rstrip() for l in hist_temp]
                 if len(command_full) == 1:
                     for x, line in enumerate(history_list):
                         print(f' {x+1} {line}')
                 else:
-                    if command_full[1][:2] == '-r':
-                        with open(command_full[1][3:], 'r') as history_file:
-                            a = input('$ ')
-                            print(1, command_foo)
-                            for x, line in enumerate(history_file.readlines()):
-                                print(x + 2, line[:-1])
-                            print(x + 2, 'history')
-                    elif command_full[1][:2] == '-w':
-                        with open(command_full[1][3:], 'w') as history_file:
-                            for x, line in enumerate(history_list):
-                                history_file.write(f'{line}\n')
+                    if command_full[1][1] == '-':
+                        match command_full[1][2]:
+                            case 'r':
+                                history_file = command_full[1][3:]
+                            case 'w':
+                                with open(history_file, 'w') as h:
+                                    for x, line in enumerate(history_list):
+                                        h.write(f'{line}\n')
+                            case 'a':
+                                with open(history_file, 'a') as h:
+                                    for x, line in enumerate(history_list):
+                                        h.write(f'{line}\n')
+                    #if command_full[1][:2] == '-r':
+                    #    with open(command_full[1][3:], 'r') as history_file:
+                    #        a = input('$ ')
+                    #        print(1, command_foo)
+                    #        for x, line in enumerate(history_file.readlines()):
+                    #            print(x + 2, line[:-1])
+                    #        print(x + 2, 'history')
+                    #elif command_full[1][:2] == '-w':
+                    #    with open(command_full[1][3:], 'w') as history_file:
+                    #        for x, line in enumerate(history_list):
+                    #            history_file.write(f'{line}\n')
                     else:
                         command_number = int(command_full[1])
                         cut = len(history_list) - command_number
