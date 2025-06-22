@@ -220,8 +220,8 @@ def main():
                     if command_full[1][:2] == '-r':
                         with open(command_full[1][3:], 'r') as history_file:
                             print('$    ')
-                            for line in history_file.readlines():
-                                print(line)
+                            for x, line in enumerate(history_file.readlines()):
+                                print(x, line)
                     else:
                         command_number = int(command_full[1])
                         cut = len(history_list) - command_number
