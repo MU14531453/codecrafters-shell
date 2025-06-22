@@ -239,7 +239,7 @@ def main():
                                 
                                 #if history_pointer != 0:
                                 #    print(history_list)
-                                history_pointer = x
+                                history_pointer = x + 1
                                 #print('hhh', history_pointer)
 
 
