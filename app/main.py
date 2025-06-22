@@ -237,8 +237,8 @@ def main():
                                         if x >= history_pointer:
                                             h.write(f'{line}\n')
                                 
-                                if history_pointer != 0:
-                                    print(history_list)
+                                #if history_pointer != 0:
+                                #    print(history_list)
                                 history_pointer = x
                                 #print('hhh', history_pointer)
 
