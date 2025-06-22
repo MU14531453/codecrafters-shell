@@ -123,10 +123,8 @@ class Autocomplete:
 
 def main():
 
-    print(os.getenv('HISTFILE'))
-    print(os.getenv('$HISTFILE'))
-    #histfile = subprocess.run('echo $HISTFILE', shell = True, capture_output = True).stdout.decode().split(':')
-    history_list = []#[line for line in open(histfile, 'r').readlines()]
+    #print(os.getenv('HISTFILE'))
+    history_list = [line for line in open(os.getenv('HISTFILE'), 'r').readlines()]
     history_file = None
     history_pointer = 0
     flag_history_from_file = False
