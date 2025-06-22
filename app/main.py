@@ -219,7 +219,7 @@ def main():
                 else:
                     if command_full[1][:2] == '-r':
                         with open(command_full[1][3:], 'r') as history_file:
-                            print('$ ')
+                            print('$  ')
                             for line in history_file.readlines():
                                 print(line)
                     else:
