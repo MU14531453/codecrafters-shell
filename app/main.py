@@ -124,7 +124,7 @@ class Autocomplete:
 def main():
 
     #print(os.getenv('HISTFILE'))
-    history_list = [line for line in open(os.getenv('HISTFILE'), 'r').readlines()]
+    history_list = [line.rstrip() for line in open(os.getenv('HISTFILE'), 'r').readlines()]
     history_file = None
     history_pointer = 0
     flag_history_from_file = False
