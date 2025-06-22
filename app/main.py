@@ -217,7 +217,7 @@ def main():
                     for x, line in enumerate(history_list):
                         print(f' {x+1} {line}')
                 else:
-                    if command_full[1] == '-r':
+                    if command_full[1][:2] == '-r':
                         with open(command_full[2], 'r') as history_file:
                             for line in history_file.readlines():
                                 print(line)
