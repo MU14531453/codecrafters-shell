@@ -118,7 +118,10 @@ class Autocomplete:
     def complete(self, text, symbol_iter):
         results = [x for x in self.commands if x.startswith(text)] + [None]
         self.results = results
-        return results[symbol_iter] + ' '
+        if len(results) > 1:
+            return results[symbol_iter]
+        else:
+            return results[symbol_iter] + ' '
 
 
 def main():
