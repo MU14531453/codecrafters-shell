@@ -220,7 +220,7 @@ def main():
                     if command_full[1][:2] == '-r':
                         with open(command_full[1][3:], 'r') as history_file:
                             a = input('$ ')
-                            for x, line in enumerate(history_file.readlines()):
+                            for x, line in enumerate(history_file.readlines()[::-1]):
                                 print(x, line[:-1])
                     else:
                         command_number = int(command_full[1])
