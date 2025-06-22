@@ -123,7 +123,9 @@ class Autocomplete:
 
 def main():
 
-    history_list = []
+
+    histfile = subprocess.run('echo $HISTFILE', shell = True, capture_output = True).stdout.decode().split(':')
+    history_list = [line for line in open(histfile, 'r').readlines()]
     history_file = None
     history_pointer = 0
     flag_history_from_file = False
@@ -241,20 +243,6 @@ def main():
                                         if x >= history_pointer:
                                             h.write(f'{line}\n')
                                 history_pointer = x + 1
-
-
-                    #if command_full[1][:2] == '-r':
-                    #    with open(command_full[1][3:], 'r') as history_file:
-                    #        a = input('$ ')
-                    #        print(1, command_foo)
-                    #        for x, line in enumerate(history_file.readlines()):
-                    #            print(x + 2, line[:-1])
-                    #        print(x + 2, 'history')
-                    #elif command_full[1][:2] == '-w':
-                    #    with open(command_full[1][3:], 'w') as history_file:
-                    #        for x, line in enumerate(history_list):
-                    #            history_file.write(f'{line}\n')
-
 
                     else:
                         command_number = int(command_full[1])
