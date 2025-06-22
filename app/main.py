@@ -227,7 +227,7 @@ def main():
                     elif command_full[1][:2] == '-w':
                         with open(command_full[1][3:], 'w') as history_file:
                             for x, line in enumerate(history_list):
-                                history_file.write(f'{x + 2} {line}\n')
+                                history_file.write(f'{line}\n')
                     else:
                         command_number = int(command_full[1])
                         cut = len(history_list) - command_number
