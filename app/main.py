@@ -224,6 +224,10 @@ def main():
                             for x, line in enumerate(history_file.readlines()):
                                 print(x + 2, line[:-1])
                             print(x + 2, 'history')
+                    elif command_full[1][:2] == '-w':
+                        with open(command_full[1][3:], 'w') as history_file:
+                            for x, line in enumerate(history_list):
+                                history_file.write(x + 2, line)
                     else:
                         command_number = int(command_full[1])
                         cut = len(history_list) - command_number
