@@ -175,7 +175,7 @@ def main():
             case 'exit':
                 if os.getenv('HISTFILE'):
                     with open(os.getenv('HISTFILE'), 'a') as h:
-                        h.write(command_foo)
+                        h.write('command_foo\n')
                         h.close()
                 exit(int(command_full[1]))
 
