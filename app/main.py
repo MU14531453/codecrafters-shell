@@ -228,7 +228,7 @@ def main():
                 else:
                     print(f'{command}: command not found')
 
-        print('$ ', end = '')
+        #print('$ ', end = '')
 
 
 if __name__ == '__main__':
