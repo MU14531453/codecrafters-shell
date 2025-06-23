@@ -5,7 +5,6 @@ import subprocess
 from pathlib import Path
 from copy import copy
 import readline
-import io
 
 def parser(string, as_list = False):
 
@@ -110,6 +109,10 @@ def write_to(file, text, append = False):
 
     return None
 
+def check_fork(com):
+
+    return '|'  in com
+
 
 class Autocomplete:
     def __init__(self, commands):
@@ -145,7 +148,6 @@ def main():
         dynamic_commands.append(''.join(folder_list).strip())
     dynamic_commands = sorted(dynamic_commands)
     completer.commands.extend(dynamic_commands)
-    
     readline.clear_history()
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
@@ -172,6 +174,9 @@ def main():
             command_full[0] = 'cat '
             command = ''.join(command_full)
             identifier = 'cat'
+
+        if check_fork(command_foo):
+            os.fork()
         
         match identifier:
 
