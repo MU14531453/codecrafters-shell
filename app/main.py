@@ -178,10 +178,12 @@ def main():
             #fork_read, fork_write = os.pipe()
             #processid = os.fork()
             command_fork = [c.strip() for c in command_foo.split('|')]
+            temp = subprocess.run(command_fork[0], shell = True, capture_output = True).stdout.decode()
+            print(temp)
             if command_fork[0].strip() == 'ls':
                 command = command_fork[1]
             else:
-                command = command_fork[1] + ' ' + subprocess.run(command_fork[0], shell = True, capture_output = True).stdout.decode()
+                command = command_fork[1] + ' ' + temp
             #if processid:
              #   print('test 1')
               #  os.close(fork_write)
@@ -220,7 +222,6 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
-                print(command_full[1])
                 if output_file:
                     if err_flag:
                         try:
