@@ -111,7 +111,17 @@ def write_to(file, text, append = False):
 
 def check_fork(com):
 
-    return '|'  in com
+    return '|' in com
+
+
+def check_multiple_fork(com):
+
+    return 1 < com.count('|')
+
+
+def fork_function():
+
+    pass
 
 
 class Autocomplete:
@@ -164,6 +174,26 @@ def main():
         command_foo = copy(command)
         history_list.append(command_foo)
 
+        if check_fork(command_foo):
+            #fork_read, fork_write = os.pipe()
+            #processid = os.fork()
+            command_fork = [c.strip() for c in command_foo.split('|')]
+            command = command_fork[1] + ' ' + subprocess.run(command_fork[0], shell = True, capture_output = True).stdout.decode()
+            #if processid:
+             #   print('test 1')
+              #  os.close(fork_write)
+               # fork_read = os.fdopen(fork_read, 'r')
+                #tail = fork_read.read()
+                #command = command_fork[1] + ' ' + tail
+                #print('t', tail)
+                #print('c', command)
+            #else:
+            #    command = command_fork[0]
+            #    parent = os.fdopen(fork_write, 'w')
+            #    parent.write('sukces')
+            #    print('test 2')
+
+
         command, output_file, append, err_flag = check_for_file_to_write(command)
 
         command_full = parser(command).split(' ', 1)
@@ -175,8 +205,6 @@ def main():
             command = ''.join(command_full)
             identifier = 'cat'
 
-        if check_fork(command_foo):
-            os.fork()
         
         match identifier:
 
@@ -195,7 +223,6 @@ def main():
                             open(output_file, 'r')
                         except FileNotFoundError:
                             write_to(output_file, '', append = append)
-                            #print(command_full[1])
                         finally:
                             write_to(output_file, '', append = append)
                             print(command_full[1])
@@ -270,6 +297,10 @@ def main():
                     subprocess.run(command_foo, shell = True)
                 else:
                     print(f'{command}: command not found')
+        
+        #if check_fork(command_foo):
+        #    if  processid:
+        #        os._exit(0)
 
 
 if __name__ == '__main__':
