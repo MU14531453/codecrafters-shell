@@ -175,11 +175,15 @@ def main():
         history_list.append(command_foo)
 
         if check_fork(command_foo):
+            subprocess.run(command, shell = True)
+            continue
+
+        if False:
+
             #fork_read, fork_write = os.pipe()
             #processid = os.fork()
             command_fork = [c.strip() for c in command_foo.split('|')]
-            if '-f' in command_fork[0]:
-                print(command_fork[0])
+            
             temp = subprocess.run(command_fork[0], shell = True, capture_output = True).stdout.decode()
             
             if '-f' in command_fork[0]:
