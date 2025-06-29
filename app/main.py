@@ -220,6 +220,7 @@ def main():
                 exit(int(command_full[1]))
 
             case 'echo':
+                print(command_full[1])
                 if output_file:
                     if err_flag:
                         try:
