@@ -178,6 +178,8 @@ def main():
             #fork_read, fork_write = os.pipe()
             #processid = os.fork()
             command_fork = [c.strip() for c in command_foo.split('|')]
+            if 'tail' in command_foo:
+                print(command_fork)
             temp = subprocess.run(command_fork[0], shell = True, capture_output = True).stdout.decode()
             if command_fork[0][0] == 't':
                 print('pretest')
