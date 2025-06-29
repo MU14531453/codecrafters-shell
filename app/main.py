@@ -178,8 +178,10 @@ def main():
             #fork_read, fork_write = os.pipe()
             #processid = os.fork()
             command_fork = [c.strip() for c in command_foo.split('|')]
+            if '-f' in command_fork[0]:
+                print(command_fork[0])
             temp = subprocess.run(command_fork[0], shell = True, capture_output = True).stdout.decode()
-            print(command_fork[0])
+            
             if '-f' in command_fork[0]:
                 print('pretest')
                 print(temp)
